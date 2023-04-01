@@ -7,98 +7,38 @@ public class PlayerMovement : MonoBehaviour
 {
     CharacterController charController;
 
-    Dictionary<Type, MovementState> availableStates;
-    MovementState currentState;
-    Type defaultStateType;
+    [SerializeField] float moveSpeed;
+
+    Vector3 moveVector;
 
     void Awake()
     {
         charController = GetComponent<CharacterController>();
-        availableStates = new Dictionary<Type, MovementState>()
-        {
-            { typeof(Standing), new Standing(gameObject) },
-        };
-        defaultStateType = typeof(Standing);
     }
 
     void Update()
     {
-        if (currentState == null)
+        moveVector = Vector3.zero;
+
+        if (Input.GetKey(KeyCode.W))
         {
-            currentState = availableStates[defaultStateType];
-            currentState.BeforeExecution();
+            moveVector += Vector3.forward;
         }
-        Type nextStateType = currentState.CheckForTransition();
-        if (nextStateType != null)
+        if (Input.GetKey(KeyCode.S))
         {
-            currentState.AfterExecution();
-            currentState = availableStates[nextStateType];
-            currentState.BeforeExecution();
+            moveVector -= Vector3.forward;
         }
-        else
+        if (Input.GetKey(KeyCode.A))
         {
-            currentState.DuringUpdate();
+            moveVector -= Vector3.right;
         }
+        if (Input.GetKey(KeyCode.D))
+        {
+            moveVector += Vector3.right;
+        }
+
+        moveVector = moveVector.normalized;
+
+        charController.Move(moveVector * moveSpeed * Time.deltaTime);
     }
-
-    void FixedUpdate()
-    {
-        if (currentState != null)
-        {
-            currentState.DuringFixedUpdate();
-        }
-    }
-
-    abstract class MovementState 
-    {
-        protected GameObject gameObject;
-        protected Transform transform;
-
-        public MovementState(GameObject gameObject)
-        {
-            this.gameObject = gameObject;
-            transform = gameObject.transform;
-        }
-
-        public abstract void BeforeExecution();
-        public abstract void AfterExecution();
-        public abstract void DuringUpdate();
-        public abstract void DuringFixedUpdate();
-        public abstract Type CheckForTransition();
-
-    }
-
-    class Standing : MovementState
-    {
-        public Standing(GameObject gameObject) : base(gameObject)
-        {
-
-        }
-
-        public override void BeforeExecution()
-        {
-            print("Standing");
-        }
-
-        public override void AfterExecution()
-        {
-            
-        }
-
-        public override void DuringUpdate()
-        {
-            
-        }
-
-        public override void DuringFixedUpdate()
-        {
-            
-        }
-
-        public override Type CheckForTransition()
-        {
-            return null;
-        }
-    }
-
 }
