@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-	public Transform playerTransform;
+	public Transform targetTransform;
 	public float smoothSpeed = .5f;
 
     void Start()
@@ -15,7 +15,7 @@ public class CameraController : MonoBehaviour
 
 	void LateUpdate()
 	{
-		transform.position = Vector3.Lerp(transform.position, playerTransform.position, smoothSpeed * Time.deltaTime);
-        transform.eulerAngles = new Vector3(transform.eulerAngles.x, playerTransform.eulerAngles.y, transform.eulerAngles.z);
+		transform.position = Vector3.Lerp(transform.position, targetTransform.position, smoothSpeed * Time.deltaTime);
+        transform.eulerAngles = new Vector3(transform.eulerAngles.x, targetTransform.eulerAngles.y, transform.eulerAngles.z);
 	}
 }
