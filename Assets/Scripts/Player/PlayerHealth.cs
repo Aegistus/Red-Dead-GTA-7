@@ -25,7 +25,6 @@ public class PlayerHealth : MonoBehaviour
         {
             Die();
         }
-        print(currentHealth);
 	}
 
 	public void Heal(float heal)

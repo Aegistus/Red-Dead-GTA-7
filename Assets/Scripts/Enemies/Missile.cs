@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class Missile : MonoBehaviour
 {
+    public static event Action OnMissileDestroy;
+
     public LayerMask targetLayers;
     public Transform target;
     public GameObject explosionPrefab;
@@ -21,7 +24,7 @@ public class Missile : MonoBehaviour
 
     void OnEnable()
     {
-        target = FindObjectOfType<PlayerMovement>().transform;
+        target = FindObjectOfType<PlayerMovement>()?.transform;
         if (target == null)
         {
             target = FindObjectOfType<CarMovement>().transform;
@@ -75,6 +78,7 @@ public class Missile : MonoBehaviour
                 }
             }
         }
+        OnMissileDestroy?.Invoke();
         Destroy(gameObject);
     }
 
