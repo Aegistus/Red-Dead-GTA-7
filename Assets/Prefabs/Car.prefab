@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 421927657152806624}
   - component: {fileID: 421927657152806625}
-  - component: {fileID: 792019395449766292}
   - component: {fileID: 932084202}
   - component: {fileID: 7074393752567129425}
   m_Layer: 7
@@ -56,19 +55,6 @@ MonoBehaviour:
   acceleration: 1
   brakeDeceleration: 0.5
   coastDeceleration: 0.1
---- !u!114 &792019395449766292
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 421927657152806639}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c83af76bf4b15bf4bb44b1fdfd68ca8c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 100
 --- !u!65 &932084202
 BoxCollider:
   m_ObjectHideFlags: 0

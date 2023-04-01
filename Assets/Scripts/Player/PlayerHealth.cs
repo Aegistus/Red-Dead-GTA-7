@@ -6,13 +6,14 @@ public class PlayerHealth : MonoBehaviour
 {
     public float maxHealth;
     
-    float currentHealth;
+    public static float currentHealth;
 	CharacterController controller;
 	void Awake()
 	{
 		controller = GetComponent<CharacterController>();
         currentHealth = maxHealth;
 	}
+
     public void Damage(float damage)
 	{
 		currentHealth -= damage;
@@ -21,12 +22,15 @@ public class PlayerHealth : MonoBehaviour
         {
             Die();
         }
+        print(currentHealth);
 	}
+
 	public void Heal(float heal)
 	{
 		currentHealth += heal;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
 	}
+
 	public void Die()
 	{
 		GetComponent<PlayerMovement>().enabled = false;
