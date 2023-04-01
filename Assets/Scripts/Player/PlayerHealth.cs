@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class PlayerHealth : MonoBehaviour
 {
+    public static Action OnDeath;
+
     public float maxHealth;
     
     public static float currentHealth;
@@ -34,6 +37,9 @@ public class PlayerHealth : MonoBehaviour
 	public void Die()
 	{
 		GetComponent<PlayerMovement>().enabled = false;
-		GetComponentInChildren<CameraController>().enabled = false;
+        Rigidbody rb = GetComponent<Rigidbody>();
+        rb.isKinematic = false;
+        rb.freezeRotation = false;
+        OnDeath?.Invoke();
 	}
 }

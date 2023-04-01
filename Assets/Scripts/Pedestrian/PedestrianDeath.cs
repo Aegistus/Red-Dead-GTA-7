@@ -11,6 +11,8 @@ public class PedestrianDeath : MonoBehaviour
     PedestrianMovement movement;
     NavMeshAgent navAgent;
 
+    bool isDead = false;
+
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -20,12 +22,14 @@ public class PedestrianDeath : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.layer == carLayer)
+        if (collision.gameObject.layer == carLayer && !isDead)
         {
             rb.isKinematic = false;
             movement.enabled = false;
             navAgent.enabled = false;
+            GameManager.Instance.DeadPedestrian();
             StartCoroutine(Despawn());
+            isDead = true;
         }
     }
 
