@@ -18,7 +18,7 @@ public class PedestrianMovement : MonoBehaviour
 
     IEnumerator Wander()
     {
-        while (true)
+        while (enabled)
         {
             Vector2 destination = Random.insideUnitCircle * wanderRange;
             navAgent.SetDestination(new Vector3(destination.x, 0, destination.y));
