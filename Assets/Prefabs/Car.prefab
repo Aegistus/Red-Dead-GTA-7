@@ -51,7 +51,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   maxSpeed: 15
-  turnSpeed: 5
+  turnSpeed: 6
   acceleration: 1
   brakeDeceleration: 0.5
   coastDeceleration: 0.1
