@@ -5,6 +5,7 @@ using UnityEngine;
 public class Missile : MonoBehaviour
 {
     public Transform target;
+    public GameObject explosionPrefab;
     public float speed = 1f;
     public float turnSpeed = 1f;
 
@@ -57,6 +58,7 @@ public class Missile : MonoBehaviour
 
     public void Explode()
     {
+        Instantiate(explosionPrefab, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
 
