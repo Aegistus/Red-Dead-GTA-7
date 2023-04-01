@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     CharacterController charController;
 
     [SerializeField] float moveSpeed;
+    [SerializeField] float turnSpeed;
 
     Vector3 moveVector;
 
@@ -18,8 +19,8 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        // lateral movement
         moveVector = Vector3.zero;
-
         if (Input.GetKey(KeyCode.W))
         {
             moveVector += Vector3.forward;
@@ -36,9 +37,13 @@ public class PlayerMovement : MonoBehaviour
         {
             moveVector += Vector3.right;
         }
-
         moveVector = moveVector.normalized;
-
+        moveVector = transform.TransformDirection(moveVector);
         charController.Move(moveVector * moveSpeed * Time.deltaTime);
+
+        // rotational movement
+        float yRotation = Input.GetAxis("Mouse X");
+        yRotation *= turnSpeed;
+        transform.Rotate(0, yRotation * Time.deltaTime, 0, Space.Self);
     }
 }
