@@ -15,6 +15,7 @@ public class CarMovement : MonoBehaviour
 	public float brakeDeceleration = .5f;
 	[Range(0f, 1f)]
 	public float coastDeceleration = .1f;
+    
 	float currentSpeed = 0f;
 	Rigidbody rb;
 	void Awake()
