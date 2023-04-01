@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class Missile : MonoBehaviour
 {
+    public LayerMask targetLayers;
     public Transform target;
     public GameObject explosionPrefab;
     public float speed = 1f;
     public float turnSpeed = 1f;
+    public float explosionRadius = 5f;
+    public float damage = 10f;
 
     private ParticleSystem smoke;
 
@@ -56,9 +59,22 @@ public class Missile : MonoBehaviour
         }
     }
 
+    Collider[] results = new Collider[5];
     public void Explode()
     {
         Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+        Physics.OverlapSphereNonAlloc(transform.position, explosionRadius, results, targetLayers);
+        for (int i = 0; i < results.Length; i++)
+        {
+            if (results[i] != null)
+            {
+                PlayerHealth health = results[i].GetComponent<PlayerHealth>();
+                if (health != null)
+                {
+                    health.Damage(damage);
+                }
+            }
+        }
         Destroy(gameObject);
     }
 
