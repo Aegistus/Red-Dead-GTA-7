@@ -45,7 +45,7 @@ public class WastedUI : MonoBehaviour
 
     IEnumerator ReturnToMainMenu()
     {
-        yield return new WaitForSeconds(3.5f);
+        yield return new WaitForSeconds(4f);
         SceneManager.LoadScene("MainMenu");
     }
 

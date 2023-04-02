@@ -7,6 +7,7 @@ public class MissileManager : MonoBehaviour
     public GameObject missilePrefab;
     public float spawnRadius = 100f;
     public float spawnHeight = 50f;
+    public float fiveStarMissileSpeed = 20f;
 
     int currentMissiles = 0;
     int targetNumOfMissiles;
@@ -31,7 +32,11 @@ public class MissileManager : MonoBehaviour
         Vector3 spawnPosition = Random.insideUnitCircle * spawnRadius;
         spawnPosition.z = spawnPosition.y;
         spawnPosition.y = spawnHeight;
-        Instantiate(missilePrefab, spawnPosition, Quaternion.identity);
+        Missile missile = Instantiate(missilePrefab, spawnPosition, Quaternion.identity).GetComponent<Missile>();
+        if (GameManager.Instance.CurrentWantedLevel == 5)
+        {
+            missile.speed = fiveStarMissileSpeed;
+        }
         currentMissiles++;
     }
 

@@ -19,9 +19,13 @@ public class PlayerHealth : MonoBehaviour
 	void Awake()
 	{
 		controller = GetComponent<CharacterController>();
-		wastedSoundID = SoundManager.Instance.GetSoundID("Wasted_Sound");
         currentHealth = maxHealth;
 		Time.timeScale = 1f;
+	}
+
+	void Start()
+	{
+		wastedSoundID = SoundManager.Instance.GetSoundID("Wasted_Sound");
 	}
 
     public void Damage(float damage)

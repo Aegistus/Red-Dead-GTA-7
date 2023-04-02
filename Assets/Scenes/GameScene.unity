@@ -7571,7 +7571,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c960b9f51cc8be4a82cff0a794fa031, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  screenDelay: 1
+  screenDelay: 2
   startElements:
   - {fileID: 21945919}
   endElements:
@@ -14619,6 +14619,7 @@ MonoBehaviour:
   missilePrefab: {fileID: 3050931875342790126, guid: ba208fb623c6f2d44972a5f29d523879, type: 3}
   spawnRadius: 300
   spawnHeight: 50
+  fiveStarMissileSpeed: 20
 --- !u!114 &1483151050
 MonoBehaviour:
   m_ObjectHideFlags: 0

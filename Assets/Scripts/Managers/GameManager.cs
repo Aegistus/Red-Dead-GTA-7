@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
 
     int numOfDeadPedestrians;
 
-    int currentWantedLevel = 0;
+    public int CurrentWantedLevel { get; private set; } = 0;
 
     int oneStarReq = 1;
     int twoStarReq = 3;
@@ -71,31 +71,31 @@ public class GameManager : MonoBehaviour
 
     public void CheckWantedLevel()
     {
-        int lastWantedLevel = currentWantedLevel;
+        int lastWantedLevel = CurrentWantedLevel;
         if (numOfDeadPedestrians >= oneStarReq)
         {
-            currentWantedLevel = 1;
+            CurrentWantedLevel = 1;
         }
         if (numOfDeadPedestrians >= twoStarReq)
         {
-            currentWantedLevel = 2;
+            CurrentWantedLevel = 2;
         }
         if (numOfDeadPedestrians >= threeStarReq)
         {
-            currentWantedLevel = 3;
+            CurrentWantedLevel = 3;
         }
         if (numOfDeadPedestrians >= fourStarReq)
         {
-            currentWantedLevel = 4;
+            CurrentWantedLevel = 4;
         }
         if (numOfDeadPedestrians >= fiveStarReq)
         {
-            currentWantedLevel = 5;
+            CurrentWantedLevel = 5;
         }
-        if (currentWantedLevel > lastWantedLevel)
+        if (CurrentWantedLevel > lastWantedLevel)
         {
             SoundManager.Instance.PlaySoundGlobal(gainStarSoundID);
         }
-        OnWantedLevelChange.Invoke(currentWantedLevel);
+        OnWantedLevelChange.Invoke(CurrentWantedLevel);
     }
 }
