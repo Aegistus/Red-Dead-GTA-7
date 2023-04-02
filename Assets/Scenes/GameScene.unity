@@ -7571,7 +7571,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c960b9f51cc8be4a82cff0a794fa031, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  screenDelay: 2
+  screenDelay: 1.5
   startElements:
   - {fileID: 21945919}
   endElements:
@@ -14632,7 +14632,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ba3bc6f5854e1548801e7239ff26918, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numOfPositionalSources: 100
+  numOfPositionalSources: 600
   mixerGroup: {fileID: 0}
   soundPath: Sounds
 --- !u!114 &1483151051

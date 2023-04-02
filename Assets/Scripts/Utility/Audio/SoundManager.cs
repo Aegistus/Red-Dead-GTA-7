@@ -99,6 +99,20 @@ public class SoundManager : MonoBehaviour
 	/// <param soundID="soundID">The ID for the sound. Can be retrieved with GetSoundID().</param>
 	/// <param parent="parent"> The transform the AudioSource should be parented to. </param>
 	/// <returns>The AudioSource that is playing the sound. null if not found.</returns>
+	public PositionalAudioSource PlaySoundAtPosition(int soundID, Vector3 position, Transform parent, int priority)
+	{
+		PositionalAudioSource source = PlaySoundAtPosition(soundID, position);
+		source.SetFollowTarget(parent);
+		source.GetComponent<AudioSource>().priority = priority;
+		return source;
+	}
+
+	/// <summary>
+	/// Play sound with ID at position. Takes an extra parameter for parenting the AudioSource.
+	/// </summary>
+	/// <param soundID="soundID">The ID for the sound. Can be retrieved with GetSoundID().</param>
+	/// <param parent="parent"> The transform the AudioSource should be parented to. </param>
+	/// <returns>The AudioSource that is playing the sound. null if not found.</returns>
 	public PositionalAudioSource PlaySoundAtPosition(int soundID, Vector3 position, Transform parent)
 	{
 		PositionalAudioSource source = PlaySoundAtPosition(soundID, position);

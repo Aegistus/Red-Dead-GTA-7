@@ -7,7 +7,7 @@ public class MissileManager : MonoBehaviour
     public GameObject missilePrefab;
     public float spawnRadius = 100f;
     public float spawnHeight = 50f;
-    public float fiveStarMissileSpeed = 20f;
+    public float fiveStarMissileSpeed = 30f;
 
     int currentMissiles = 0;
     int targetNumOfMissiles;
