@@ -147,8 +147,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbaceca69a6a5ce4c832162b9ff32024, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minSpeakInterval: 10
-  maxSpeakInterval: 90
+  minSpeakInterval: 5
+  maxSpeakInterval: 20
 --- !u!114 &1750746482247441897
 MonoBehaviour:
   m_ObjectHideFlags: 0

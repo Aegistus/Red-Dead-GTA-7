@@ -11,12 +11,15 @@ public class PlayerHealth : MonoBehaviour
     
     public static float currentHealth;
 	CharacterController controller;
+	
+	int wastedSoundID;
 
 	bool isDead = false;
 
 	void Awake()
 	{
 		controller = GetComponent<CharacterController>();
+		wastedSoundID = SoundManager.Instance.GetSoundID("Wasted_Sound");
         currentHealth = maxHealth;
 		Time.timeScale = 1f;
 	}
@@ -42,6 +45,7 @@ public class PlayerHealth : MonoBehaviour
 		if (!isDead)
 		{
 			PlayerMovement playerMove = GetComponent<PlayerMovement>();
+			SoundManager.Instance.PlaySoundGlobal(wastedSoundID);
 			if (playerMove != null)
 			{
 				playerMove.enabled = false;
@@ -56,6 +60,7 @@ public class PlayerHealth : MonoBehaviour
 			rb.freezeRotation = false;
 			isDead = true;
 			Time.timeScale = .5f;
+
 			OnDeath?.Invoke();
 		}
 

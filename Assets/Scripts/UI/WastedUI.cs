@@ -10,6 +10,7 @@ public class WastedUI : MonoBehaviour
     [SerializeField] GameObject[] startElements;
     [SerializeField] GameObject[] endElements;
 
+
     void Start()
     {
         PlayerHealth.OnDeath += StartUI;
@@ -44,7 +45,7 @@ public class WastedUI : MonoBehaviour
 
     IEnumerator ReturnToMainMenu()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(3.5f);
         SceneManager.LoadScene("MainMenu");
     }
 

@@ -6,6 +6,12 @@ public class PlayerInteraction : MonoBehaviour
 {
     public LayerMask carLayer;
     public float interactionDistance = 1f;
+    int openDoorSoundID;
+
+    void Start()
+    {
+        openDoorSoundID = SoundManager.Instance.GetSoundID("Car_Door_Open");
+    }
 
     void Update()
     {
@@ -13,6 +19,7 @@ public class PlayerInteraction : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
+                SoundManager.Instance.PlaySoundAtPosition(openDoorSoundID, transform.position);
                 GameManager.Instance.PlayerEnterCar();
             }
             //print("In interaction range");

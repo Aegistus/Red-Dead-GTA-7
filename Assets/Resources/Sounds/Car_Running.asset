@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Car_Running
   m_EditorClassIdentifier: 
   audioVariants:
-  - {fileID: 8300000, guid: ac0a01ffe5134c844b78b6cb652752b7, type: 3}
-  volume: 0.1
+  - {fileID: 8300000, guid: b4f72cc457e7ace4fbc5ca7828624cfc, type: 3}
+  volume: 0.07
   volumeVariance: 0.1
   pitch: 1
   pitchVariance: 0.1

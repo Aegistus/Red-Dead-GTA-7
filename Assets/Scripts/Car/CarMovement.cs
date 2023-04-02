@@ -19,6 +19,8 @@ public class CarMovement : MonoBehaviour
     
 	float currentSpeed = 0f;
 	int runningSoundID;
+	int impactSoundID;
+	int carStartSoundID;
 	Rigidbody rb;
 	bool obstructed = false;
 
@@ -30,19 +32,14 @@ public class CarMovement : MonoBehaviour
 	void Start()
 	{
 		runningSoundID = SoundManager.Instance.GetSoundID("Car_Running");
+		impactSoundID = SoundManager.Instance.GetSoundID("Car_Impact");
+		carStartSoundID = SoundManager.Instance.GetSoundID("Car_Start");
 		SoundManager.Instance.PlayGlobalFadeIn(runningSoundID, 1f);
+		SoundManager.Instance.PlaySoundAtPosition(carStartSoundID, transform.position);
 	}
 
 	void Update()
 	{
-		if (Input.GetKeyDown(KeyCode.W))
-		{
-			SoundManager.Instance.PlayGlobalFadeIn(runningSoundID, 1f);
-		}
-		if (Input.GetKeyUp(KeyCode.W))
-		{
-			SoundManager.Instance.StopPlayGlobalFadeOut(runningSoundID, 1f);
-		}
 		if (!IsGrounded())
 		{
 			transform.Translate(Vector3.forward * currentSpeed * Time.deltaTime, Space.Self);
@@ -79,6 +76,7 @@ public class CarMovement : MonoBehaviour
 		if (other.gameObject.layer == LayerMask.NameToLayer("Ground"))
 		{
 			obstructed = true;
+			SoundManager.Instance.PlaySoundAtPosition(impactSoundID, transform.position);
 		}
 	}
 
