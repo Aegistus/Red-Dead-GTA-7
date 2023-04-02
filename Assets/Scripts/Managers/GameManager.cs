@@ -9,7 +9,6 @@ public class GameManager : MonoBehaviour
     public Action<int> OnWantedLevelChange;
 
     PlayerMovement player;
-    CarMovement car;
     CameraController cam;
 
     int numOfDeadPedestrians;
@@ -38,16 +37,14 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        car = FindObjectOfType<CarMovement>();
         player = FindObjectOfType<PlayerMovement>();
         cam = FindObjectOfType<CameraController>();
-        car.enabled = false;
         int cityAmbianceSoundID = SoundManager.Instance.GetSoundID("City_Ambiance");
         gainStarSoundID = SoundManager.Instance.GetSoundID("Gain_Star");
         SoundManager.Instance.PlayGlobalFadeIn(cityAmbianceSoundID, 2f);
     }
 
-    public void PlayerEnterCar()
+    public void PlayerEnterCar(CarMovement car)
     {
         player.gameObject.SetActive(false);
         car.enabled = true;
@@ -56,7 +53,7 @@ public class GameManager : MonoBehaviour
         cam.targetTransform = car.transform;
     }
 
-    public void PlayerExitCar()
+    public void PlayerExitCar(CarMovement car)
     {
         player.transform.position = car.transform.position;
         //player.transform.rotation = car.transform.rotation;

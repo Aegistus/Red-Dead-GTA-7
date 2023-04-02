@@ -13,14 +13,19 @@ public class PlayerInteraction : MonoBehaviour
         openDoorSoundID = SoundManager.Instance.GetSoundID("Car_Door_Open");
     }
 
+    RaycastHit rayHit;
     void Update()
     {
-        if (Physics.Raycast(transform.position, transform.forward, interactionDistance, carLayer))
+        if (Physics.Raycast(transform.position, transform.forward, out rayHit, interactionDistance, carLayer))
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
-                SoundManager.Instance.PlaySoundAtPosition(openDoorSoundID, transform.position);
-                GameManager.Instance.PlayerEnterCar();
+                CarMovement car = rayHit.collider.GetComponentInParent<CarMovement>();
+                if (car != null)
+                {
+                    SoundManager.Instance.PlaySoundAtPosition(openDoorSoundID, transform.position);
+                    GameManager.Instance.PlayerEnterCar(car);
+                }
             }
             //print("In interaction range");
         }

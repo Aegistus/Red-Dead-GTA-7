@@ -95,6 +95,6 @@ public class CarMovement : MonoBehaviour
 
 	public bool IsGrounded()
 	{
-		return Physics.Raycast(transform.position + Vector3.up, Vector3.down, 3f, groundLayer);
+		return Physics.Raycast(transform.position + (Vector3.up * .5f), -transform.up, 3f, groundLayer);
 	}
 }

@@ -16,7 +16,7 @@ public class CarInteraction : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E))
         {
             SoundManager.Instance.PlaySoundAtPosition(openDoorSoundID, transform.position);
-            GameManager.Instance.PlayerExitCar();
+            GameManager.Instance.PlayerExitCar(GetComponent<CarMovement>());
         }
     }
 }
