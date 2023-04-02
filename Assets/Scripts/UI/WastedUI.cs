@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class WastedUI : MonoBehaviour
 {
@@ -38,6 +39,13 @@ public class WastedUI : MonoBehaviour
         {
             endElements[i].SetActive(true);
         }
+        StartCoroutine(ReturnToMainMenu());
+    }
+
+    IEnumerator ReturnToMainMenu()
+    {
+        yield return new WaitForSeconds(3f);
+        SceneManager.LoadScene("MainMenu");
     }
 
     void OnDestroy()

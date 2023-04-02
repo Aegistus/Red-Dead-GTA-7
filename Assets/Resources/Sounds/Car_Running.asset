@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioVariants:
   - {fileID: 8300000, guid: ac0a01ffe5134c844b78b6cb652752b7, type: 3}
-  volume: 0.5
+  volume: 0.1
   volumeVariance: 0.1
   pitch: 1
   pitchVariance: 0.1
