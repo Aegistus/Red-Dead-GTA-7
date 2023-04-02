@@ -34,6 +34,11 @@ public class CarMovement : MonoBehaviour
 		runningSoundID = SoundManager.Instance.GetSoundID("Car_Running");
 		impactSoundID = SoundManager.Instance.GetSoundID("Car_Impact");
 		carStartSoundID = SoundManager.Instance.GetSoundID("Car_Start");
+
+	}
+
+	void OnEnable()
+	{
 		SoundManager.Instance.PlayGlobalFadeIn(runningSoundID, 1f);
 		SoundManager.Instance.PlaySoundAtPosition(carStartSoundID, transform.position);
 	}

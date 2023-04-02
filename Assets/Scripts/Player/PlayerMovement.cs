@@ -53,4 +53,15 @@ public class PlayerMovement : MonoBehaviour
         yRotation *= turnSpeed;
         transform.Rotate(0, yRotation * Time.deltaTime, 0, Space.Self);
     }
+
+    void OnDisable()
+    {
+        moveVector = Vector3.zero;
+        charController.enabled = false;
+    }
+
+    void OnEnable()
+    {
+        charController.enabled = true;
+    }
 }

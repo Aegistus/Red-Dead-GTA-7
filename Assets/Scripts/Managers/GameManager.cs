@@ -51,6 +51,7 @@ public class GameManager : MonoBehaviour
     {
         player.gameObject.SetActive(false);
         car.enabled = true;
+        car.GetComponent<CarInteraction>().enabled = true;
         car.gameObject.AddComponent<PlayerHealth>();
         cam.targetTransform = car.transform;
     }
@@ -58,8 +59,13 @@ public class GameManager : MonoBehaviour
     public void PlayerExitCar()
     {
         player.transform.position = car.transform.position;
+        //player.transform.rotation = car.transform.rotation;
+        player.transform.Translate(Vector3.right * 3.5f, Space.Self);
+        player.transform.Translate(Vector3.up * 3, Space.Self);
         player.gameObject.SetActive(true);
         car.enabled = false;
+        car.GetComponent<CarInteraction>().enabled = false;
+        car.GetComponent<PlayerHealth>().enabled = false;
         cam.targetTransform = player.transform;
     }
 
