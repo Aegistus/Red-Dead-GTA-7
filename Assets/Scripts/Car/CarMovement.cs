@@ -20,6 +20,8 @@ public class CarMovement : MonoBehaviour
 	float currentSpeed = 0f;
 	int runningSoundID;
 	Rigidbody rb;
+	bool obstructed = false;
+
 	void Awake()
 	{
 		rb = GetComponent<Rigidbody>();
@@ -63,9 +65,29 @@ public class CarMovement : MonoBehaviour
 		{
 			currentSpeed = Mathf.Lerp(currentSpeed, 0f, coastDeceleration * Time.deltaTime);
 		}
+		if (obstructed)
+		{
+			currentSpeed = Mathf.Clamp(currentSpeed, float.NegativeInfinity, 0);
+		}
 		currentSpeed = Mathf.Clamp(currentSpeed, -maxSpeed, maxSpeed);
 		transform.Translate(Vector3.forward * currentSpeed * Time.deltaTime, Space.Self);
 		transform.Rotate(Vector3.up * horizontalInput * turnSpeed * currentSpeed * Time.deltaTime, Space.Self);
+	}
+
+	void OnTriggerEnter(Collider other)
+	{
+		if (other.gameObject.layer == LayerMask.NameToLayer("Ground"))
+		{
+			obstructed = true;
+		}
+	}
+
+	void OnTriggerExit(Collider other)
+	{
+		if (other.gameObject.layer == LayerMask.NameToLayer("Ground"))
+		{
+			obstructed = false;
+		}
 	}
 
 	public bool IsGrounded()
