@@ -35,6 +35,11 @@ public class PositionalAudioSource : MonoBehaviour
         this.delay = delay;
     }
 
+    public void Loop(bool loop)
+    {
+        audioSource.loop = loop;
+    }
+
     public void Play()
     {
         audioSource.PlayDelayed(delay);

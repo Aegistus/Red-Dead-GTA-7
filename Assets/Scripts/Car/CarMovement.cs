@@ -17,14 +17,29 @@ public class CarMovement : MonoBehaviour
 	public float coastDeceleration = .1f;
     
 	float currentSpeed = 0f;
+	int runningSoundID;
 	Rigidbody rb;
 	void Awake()
 	{
 		rb = GetComponent<Rigidbody>();
 	}
 	
+	void Start()
+	{
+		runningSoundID = SoundManager.Instance.GetSoundID("Car_Running");
+		SoundManager.Instance.PlayGlobalFadeIn(runningSoundID, 1f);
+	}
+
 	void Update()
 	{
+		if (Input.GetKeyDown(KeyCode.W))
+		{
+			SoundManager.Instance.PlayGlobalFadeIn(runningSoundID, 1f);
+		}
+		if (Input.GetKeyUp(KeyCode.W))
+		{
+			SoundManager.Instance.StopPlayGlobalFadeOut(runningSoundID, 1f);
+		}
 		if (!IsGrounded())
 		{
 			return;

@@ -7,10 +7,13 @@ public class PlayerHealth : MonoBehaviour
 {
     public static Action OnDeath;
 
-    public float maxHealth;
+    public static float maxHealth = 100;
     
     public static float currentHealth;
 	CharacterController controller;
+
+	bool isDead = false;
+
 	void Awake()
 	{
 		controller = GetComponent<CharacterController>();
@@ -35,10 +38,24 @@ public class PlayerHealth : MonoBehaviour
 
 	public void Die()
 	{
-		GetComponent<PlayerMovement>().enabled = false;
-        Rigidbody rb = GetComponent<Rigidbody>();
-        rb.isKinematic = false;
-        rb.freezeRotation = false;
-        OnDeath?.Invoke();
+		if (!isDead)
+		{
+			PlayerMovement playerMove = GetComponent<PlayerMovement>();
+			if (playerMove != null)
+			{
+				playerMove.enabled = false;
+			}
+			CarMovement car = GetComponent<CarMovement>();
+			if (car != null)
+			{
+				car.enabled = false;
+			}
+			Rigidbody rb = GetComponent<Rigidbody>();
+			rb.isKinematic = false;
+			rb.freezeRotation = false;
+			isDead = true;
+			OnDeath?.Invoke();
+		}
+
 	}
 }

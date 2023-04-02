@@ -46,6 +46,7 @@ public class GameManager : MonoBehaviour
     {
         player.gameObject.SetActive(false);
         car.enabled = true;
+        car.gameObject.AddComponent<PlayerHealth>();
         cam.targetTransform = car.transform;
     }
 

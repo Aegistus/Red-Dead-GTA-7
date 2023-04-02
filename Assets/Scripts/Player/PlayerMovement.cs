@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
 {
     CharacterController charController;
 
+    [SerializeField] LayerMask groundLayer;
     [SerializeField] float moveSpeed;
     [SerializeField] float turnSpeed;
 
@@ -40,6 +41,12 @@ public class PlayerMovement : MonoBehaviour
         moveVector = moveVector.normalized;
         moveVector = transform.TransformDirection(moveVector);
         charController.Move(moveVector * moveSpeed * Time.deltaTime);
+
+        RaycastHit rayHit;
+        if (Physics.Raycast(transform.position, Vector3.down, out rayHit, 20f, groundLayer))
+        {
+            transform.position = rayHit.point + Vector3.up;
+        }
 
         // rotational movement
         float yRotation = Input.GetAxis("Mouse X");

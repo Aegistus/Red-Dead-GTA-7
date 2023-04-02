@@ -2219,8 +2219,9 @@ GameObject:
   - component: {fileID: 1483151047}
   - component: {fileID: 1483151048}
   - component: {fileID: 1483151049}
+  - component: {fileID: 1483151050}
   m_Layer: 0
-  m_Name: Manager
+  m_Name: Managers
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2268,6 +2269,21 @@ MonoBehaviour:
   missilePrefab: {fileID: 3050931875342790126, guid: ba208fb623c6f2d44972a5f29d523879, type: 3}
   spawnRadius: 100
   spawnHeight: 50
+--- !u!114 &1483151050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1483151046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ba3bc6f5854e1548801e7239ff26918, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numOfPositionalSources: 100
+  mixerGroup: {fileID: 0}
+  soundPath: Sounds
 --- !u!1 &1486916611
 GameObject:
   m_ObjectHideFlags: 0
@@ -3142,6 +3158,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 932084202, guid: e39fadea716b4ac48adc1a2b42242238, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 421927657152806624, guid: e39fadea716b4ac48adc1a2b42242238, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -3189,6 +3209,10 @@ PrefabInstance:
     - target: {fileID: 421927657152806639, guid: e39fadea716b4ac48adc1a2b42242238, type: 3}
       propertyPath: m_Name
       value: Car
+      objectReference: {fileID: 0}
+    - target: {fileID: 9003224543217776143, guid: e39fadea716b4ac48adc1a2b42242238, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e39fadea716b4ac48adc1a2b42242238, type: 3}

@@ -16,10 +16,16 @@ public class Missile : MonoBehaviour
     public float damage = 10f;
 
     private ParticleSystem smoke;
+    private int explosionSoundID;
 
     private void Awake()
     {
         smoke = GetComponentInChildren<ParticleSystem>();
+    }
+
+    void Start()
+    {
+        explosionSoundID = SoundManager.Instance.GetSoundID("Missile_Explosion");
     }
 
     void OnEnable()
@@ -78,6 +84,7 @@ public class Missile : MonoBehaviour
                 }
             }
         }
+        SoundManager.Instance.PlaySoundAtPosition(explosionSoundID, transform.position);
         OnMissileDestroy?.Invoke();
         Destroy(gameObject);
     }
