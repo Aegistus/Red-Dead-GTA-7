@@ -28,16 +28,21 @@ public class PedestrianDeath : MonoBehaviour
     {
         if (collision.gameObject.layer == carLayer && !isDead)
         {
-            rb.isKinematic = false;
-            movement.enabled = false;
-            navAgent.enabled = false;
-            Vector3 forceDirection = Random.onUnitSphere;
-            rb.AddForce(forceDirection * deathForce);
-            GameManager.Instance.DeadPedestrian();
-            StartCoroutine(Despawn());
-            isDead = true;
-            OnPedestrianDeath?.Invoke();
+            Kill();
         }
+    }
+
+    public void Kill()
+    {
+        rb.isKinematic = false;
+        movement.enabled = false;
+        navAgent.enabled = false;
+        Vector3 forceDirection = Random.onUnitSphere;
+        rb.AddForce(forceDirection * deathForce, ForceMode.Impulse);
+        GameManager.Instance.DeadPedestrian();
+        StartCoroutine(Despawn());
+        isDead = true;
+        OnPedestrianDeath?.Invoke();
     }
 
     IEnumerator Despawn()

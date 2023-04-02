@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1750746482152545153}
   - component: {fileID: 1750746482152545154}
   - component: {fileID: 1750746482152545155}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -112,7 +112,7 @@ GameObject:
   - component: {fileID: 1750746482247441898}
   - component: {fileID: 1750746482247441899}
   - component: {fileID: 1750746482247441896}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Pedestrian
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -175,7 +175,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ecae5a9b91c7f947a3252741245604b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wanderRange: 20
+  wanderRange: 300
   waitTimer: 7
 --- !u!195 &1750746482247441899
 NavMeshAgent:

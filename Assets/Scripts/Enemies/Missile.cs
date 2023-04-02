@@ -82,6 +82,11 @@ public class Missile : MonoBehaviour
                 {
                     health.Damage(damage);
                 }
+                PedestrianDeath pedDeath = results[i].GetComponent<PedestrianDeath>();
+                if (pedDeath != null)
+                {
+                    pedDeath.Kill();
+                }
             }
         }
         SoundManager.Instance.PlaySoundAtPosition(explosionSoundID, transform.position);

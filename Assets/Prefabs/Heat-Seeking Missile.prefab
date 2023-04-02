@@ -4957,12 +4957,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetLayers:
     serializedVersion: 2
-    m_Bits: 136
+    m_Bits: 392
   target: {fileID: 0}
   explosionPrefab: {fileID: 2991814132298338548, guid: a28e638959b3ad4499e66609e26d2cda, type: 3}
-  speed: 7
+  speed: 16
   turnSpeed: 5
-  explosionRadius: 5
+  explosionRadius: 2
   damage: 10
 --- !u!135 &3050931875342790099
 SphereCollider:
