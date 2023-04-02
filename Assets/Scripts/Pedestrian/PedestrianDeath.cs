@@ -2,9 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using System;
 
 public class PedestrianDeath : MonoBehaviour
 {
+    public static event Action OnPedestrianDeath;
+
     [SerializeField] int carLayer;
     [SerializeField] float despawnTime;
     Rigidbody rb;
@@ -30,6 +33,7 @@ public class PedestrianDeath : MonoBehaviour
             GameManager.Instance.DeadPedestrian();
             StartCoroutine(Despawn());
             isDead = true;
+            OnPedestrianDeath?.Invoke();
         }
     }
 
