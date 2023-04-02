@@ -10,9 +10,9 @@ public class MissileManager : MonoBehaviour
 
     int currentMissiles = 0;
     int targetNumOfMissiles;
-    int maxMissiles = 200;
+    int maxMissiles = 100;
     float spawnInterval = 20f;
-    int[] missilesPerWantedLevel = { 0, 10, 20, 40, 80, 120 };
+    int[] missilesPerWantedLevel = { 0, 10, 20, 40, 80, 100 };
 
     void Start()
     {

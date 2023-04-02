@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 using UnityEngine.AI;
 using System;
 
@@ -13,7 +14,7 @@ public class PedestrianDeath : MonoBehaviour
     Rigidbody rb;
     PedestrianMovement movement;
     NavMeshAgent navAgent;
-
+    float deathForce = 20f;
     bool isDead = false;
 
     void Awake()
@@ -30,6 +31,8 @@ public class PedestrianDeath : MonoBehaviour
             rb.isKinematic = false;
             movement.enabled = false;
             navAgent.enabled = false;
+            Vector3 forceDirection = Random.onUnitSphere;
+            rb.AddForce(forceDirection * deathForce);
             GameManager.Instance.DeadPedestrian();
             StartCoroutine(Despawn());
             isDead = true;

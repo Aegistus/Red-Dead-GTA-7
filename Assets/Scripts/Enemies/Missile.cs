@@ -68,7 +68,7 @@ public class Missile : MonoBehaviour
         }
     }
 
-    Collider[] results = new Collider[5];
+    Collider[] results = new Collider[10];
     public void Explode()
     {
         Instantiate(explosionPrefab, transform.position, Quaternion.identity);

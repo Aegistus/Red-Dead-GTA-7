@@ -18,6 +18,7 @@ public class PlayerHealth : MonoBehaviour
 	{
 		controller = GetComponent<CharacterController>();
         currentHealth = maxHealth;
+		Time.timeScale = 1f;
 	}
 
     public void Damage(float damage)
@@ -54,6 +55,7 @@ public class PlayerHealth : MonoBehaviour
 			rb.isKinematic = false;
 			rb.freezeRotation = false;
 			isDead = true;
+			Time.timeScale = .5f;
 			OnDeath?.Invoke();
 		}
 

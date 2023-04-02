@@ -148,7 +148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minSpeakInterval: 10
-  maxSpeakInterval: 40
+  maxSpeakInterval: 90
 --- !u!114 &1750746482247441897
 MonoBehaviour:
   m_ObjectHideFlags: 0
