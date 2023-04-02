@@ -20,7 +20,6 @@ public class PedestrianDialogue : MonoBehaviour
         while (true)
         {
             float waitTime = Random.Range(minSpeakInterval, maxSpeakInterval);
-            print(waitTime);
             yield return new WaitForSeconds(waitTime);
             SoundManager.Instance.PlaySoundAtPosition(voiceLineID, transform.position, transform);
         }
