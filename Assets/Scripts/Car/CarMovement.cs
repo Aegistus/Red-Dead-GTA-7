@@ -15,6 +15,7 @@ public class CarMovement : MonoBehaviour
 	public float brakeDeceleration = .5f;
 	[Range(0f, 1f)]
 	public float coastDeceleration = .1f;
+	public float inAirDeceleration = 3f;
     
 	float currentSpeed = 0f;
 	int runningSoundID;
@@ -42,6 +43,10 @@ public class CarMovement : MonoBehaviour
 		}
 		if (!IsGrounded())
 		{
+			transform.Translate(Vector3.forward * currentSpeed * Time.deltaTime, Space.Self);
+			currentSpeed -= (inAirDeceleration * Time.deltaTime);
+			currentSpeed = Mathf.Clamp(currentSpeed, 0, float.MaxValue);
+			//print(currentSpeed);
 			return;
 		}
 		float forwardInput = Input.GetAxis("Vertical");

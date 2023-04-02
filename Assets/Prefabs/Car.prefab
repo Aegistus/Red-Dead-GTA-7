@@ -58,6 +58,7 @@ MonoBehaviour:
   acceleration: 1
   brakeDeceleration: 0.5
   coastDeceleration: 0.1
+  inAirDeceleration: 6
 --- !u!65 &932084202
 BoxCollider:
   m_ObjectHideFlags: 0
