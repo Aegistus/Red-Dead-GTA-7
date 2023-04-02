@@ -30,11 +30,11 @@ public class Missile : MonoBehaviour
 
     void OnEnable()
     {
-        target = FindObjectOfType<PlayerMovement>()?.transform;
-        if (target == null)
-        {
-            target = FindObjectOfType<CarMovement>().transform;
-        }
+        target = FindObjectOfType<PlayerHealth>()?.transform;
+        // if (target == null)
+        // {
+        //     target = FindObjectOfType<CarMovement>().transform;
+        // }
     }
 
     private void Update()
