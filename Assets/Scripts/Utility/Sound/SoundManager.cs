@@ -16,9 +16,7 @@ public class SoundManager : MonoBehaviour
 	private Sound[] sounds;
 
 	private Queue<PositionalAudioSource> positionalSources = new Queue<PositionalAudioSource>();
-
-	private static bool keepFadingIn;
-	private static bool keepFadingOut;
+	private List<AudioSource> toUnpause = new List<AudioSource>();
 
 	void Awake()
 	{
@@ -37,7 +35,7 @@ public class SoundManager : MonoBehaviour
 			s.source = gameObject.AddComponent<AudioSource>();
 			s.source.clip = s.GetRandomAudioClip();
 			s.source.loop = s.loop;
-			s.source.outputAudioMixerGroup = mixerGroup;
+			s.source.outputAudioMixerGroup = s.mixerGroup;
 		}
 		Transform positionalSourceParent = new GameObject("Positional Audio Sources").transform;
         for (int i = 0; i < numOfPositionalSources; i++)
@@ -70,6 +68,11 @@ public class SoundManager : MonoBehaviour
 		return sound.source;
 	}
 
+	public PositionalAudioSource PlaySoundAtPosition(string soundName, Vector3 position)
+    {
+		return PlaySoundAtPosition(Instance.GetSoundID(soundName), position);
+    }
+
 	/// <summary>
 	/// Play sound with ID at the given position. The AudioSource will use 3D sound settings.
 	/// </summary>
@@ -85,25 +88,10 @@ public class SoundManager : MonoBehaviour
 		Sound sound = sounds[soundID];
 
 		PositionalAudioSource source = positionalSources.Dequeue();
-		source.Loop(sound.loop);
 		source.SetSound(sound);
 		source.transform.position = position;
 		source.Play();
 		positionalSources.Enqueue(source);
-		return source;
-	}
-
-	/// <summary>
-	/// Play sound with ID at position. Takes an extra parameter for parenting the AudioSource.
-	/// </summary>
-	/// <param soundID="soundID">The ID for the sound. Can be retrieved with GetSoundID().</param>
-	/// <param parent="parent"> The transform the AudioSource should be parented to. </param>
-	/// <returns>The AudioSource that is playing the sound. null if not found.</returns>
-	public PositionalAudioSource PlaySoundAtPosition(int soundID, Vector3 position, Transform parent, int priority)
-	{
-		PositionalAudioSource source = PlaySoundAtPosition(soundID, position);
-		source.SetFollowTarget(parent);
-		source.GetComponent<AudioSource>().priority = priority;
 		return source;
 	}
 
@@ -189,19 +177,22 @@ public class SoundManager : MonoBehaviour
 		{
 			Debug.LogWarning("Invalid Sound ID: " + soundID);
 		}
-		Sound sound = sounds[soundID];
-
-		sound.source.clip = sound.GetRandomAudioClip();
-		sound.source.volume = 0;
-		sound.source.Play();
-
-		float currentTime = 0f;
-		while(currentTime < fadeTime)
+		else
         {
-			currentTime += Time.deltaTime;
-			sound.source.volume = Mathf.Lerp(0, sound.volume, currentTime / fadeTime);
-			yield return null;
-        }
+			Sound sound = sounds[soundID];
+
+			sound.source.clip = sound.GetRandomAudioClip();
+			sound.source.volume = 0;
+			sound.source.Play();
+
+			float currentTime = 0f;
+			while (currentTime < fadeTime)
+			{
+				currentTime += Time.deltaTime;
+				sound.source.volume = Mathf.Lerp(0, sound.volume, currentTime / fadeTime);
+				yield return null;
+			}
+		}
     }
 
 	IEnumerator FadeOut(int soundID, float fadeTime)
@@ -210,17 +201,42 @@ public class SoundManager : MonoBehaviour
 		{
 			Debug.LogWarning("Invalid Sound ID: " + soundID);
 		}
-		Sound sound = sounds[soundID];
+		else
+        {
+			Sound sound = sounds[soundID];
 
-		sound.source.clip = sound.GetRandomAudioClip();
-		
-		float currentTime = 0;
-		while (currentTime < fadeTime)
-		{
-			currentTime += Time.deltaTime;
-			sound.source.volume = Mathf.Lerp(0, sound.volume, 1 - (currentTime / fadeTime));
-			yield return null;
+			sound.source.clip = sound.GetRandomAudioClip();
+
+			float currentTime = 0;
+			while (currentTime < fadeTime)
+			{
+				currentTime += Time.deltaTime;
+				sound.source.volume = Mathf.Lerp(0, sound.volume, 1 - (currentTime / fadeTime));
+				yield return null;
+			}
+			sound.source.Stop();
 		}
-		sound.source.Stop();
 	}
+
+	public void PauseAllSounds()
+    {
+		AudioSource[] sources = FindObjectsOfType<AudioSource>();
+		for (int i = 0; i < sources.Length; i++)
+        {
+			if (sources[i].isPlaying)
+            {
+				sources[i].Pause();
+				toUnpause.Add(sources[i]);
+            }
+        }
+    }
+
+	public void UnPauseAllSounds()
+    {
+		for (int i = 0; i < toUnpause.Count; i++)
+        {
+			toUnpause[i].UnPause();
+        }
+		toUnpause.Clear();
+    }
 }

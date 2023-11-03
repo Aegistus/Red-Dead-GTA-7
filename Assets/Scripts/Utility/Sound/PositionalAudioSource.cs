@@ -21,7 +21,7 @@ public class PositionalAudioSource : MonoBehaviour
         this.sound = sound;
         audioSource.volume = this.sound.volume * (1f + UnityEngine.Random.Range(-this.sound.volumeVariance / 2f, this.sound.volumeVariance / 2f));
         audioSource.pitch = this.sound.pitch * (1f + UnityEngine.Random.Range(-this.sound.pitchVariance / 2f, this.sound.pitchVariance / 2f));
-        audioSource.minDistance = this.sound.minimunDistance;
+        audioSource.minDistance = this.sound.minimumDistance;
         audioSource.clip = this.sound.GetRandomAudioClip();
     }
 
@@ -33,11 +33,6 @@ public class PositionalAudioSource : MonoBehaviour
     public void SetDelay(float delay)
     {
         this.delay = delay;
-    }
-
-    public void Loop(bool loop)
-    {
-        audioSource.loop = loop;
     }
 
     public void Play()
