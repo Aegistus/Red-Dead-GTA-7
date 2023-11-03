@@ -22,6 +22,7 @@ public class Projectile : MonoBehaviour
         RaycastHit rayHit;
         if (Physics.Raycast(transform.position, transform.forward, out rayHit, speed * Time.deltaTime, mask, QueryTriggerInteraction.Ignore))
         {
+            print("TEST2");
             PoolManager.Instance.SpawnObjectWithLifetime(impactEffectName, rayHit.point, transform.rotation, 5f);
             AgentHealth health = rayHit.collider.GetComponentInParent<AgentHealth>();
             if (health)
@@ -32,8 +33,6 @@ public class Projectile : MonoBehaviour
             else
             {
                 SoundManager.Instance.PlaySoundAtPosition("Impact_Metal", transform.position);
-                GameObject bulletHole = PoolManager.Instance.SpawnObjectWithLifetime("Bullet_Hole", rayHit.point, Quaternion.identity, 60);
-                bulletHole.transform.LookAt(rayHit.point + rayHit.normal);
             }
             gameObject.SetActive(false);
         }

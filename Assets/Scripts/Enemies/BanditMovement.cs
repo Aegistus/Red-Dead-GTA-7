@@ -8,6 +8,8 @@ public class BanditMovement : MonoBehaviour
     [SerializeField] float detectionRadius = 30f;
     [SerializeField] float standDistance = 10f;
 
+    public bool InAttackRange { get; private set; }
+
     NavMeshAgent navAgent;
     Transform playerTransform;
 
@@ -21,6 +23,7 @@ public class BanditMovement : MonoBehaviour
 
     private void Update()
     {
+        InAttackRange = false;
         float distance = Vector3.Distance(transform.position, playerTransform.position);
         if (distance <= detectionRadius)
         {
@@ -32,6 +35,7 @@ public class BanditMovement : MonoBehaviour
             else
             {
                 navAgent.SetDestination(transform.position);
+                InAttackRange = true;
             }
         }
     }

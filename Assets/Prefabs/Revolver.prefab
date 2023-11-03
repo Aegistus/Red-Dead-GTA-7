@@ -89,8 +89,8 @@ MonoBehaviour:
   projectileID: Revolver_Bullet
   projectileSpawnPoint: {fileID: 2570021905234114248}
   weaponModel: {fileID: 2570021903702279657}
-  recoilXRotation: 1
-  recoilYRotation: 0
+  recoilXRotation: -10
+  recoilYRotation: 5
   recoilRotationRecovery: 1
   aimFOVChange: 10
 --- !u!114 &2570021904619861534
@@ -106,8 +106,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   reloadSound: 
-  maxLoadedAmmo: 10
-  maxCarriedAmmo: 100
+  maxLoadedAmmo: 6
+  maxCarriedAmmo: 1000000
   reloadTime: 2
 --- !u!65 &2570021904619861528
 BoxCollider:
