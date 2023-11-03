@@ -91,7 +91,7 @@ MonoBehaviour:
   weaponModel: {fileID: 2570021903702279657}
   recoilXRotation: -10
   recoilYRotation: 5
-  recoilRotationRecovery: 1
+  recoilRotationRecovery: 3
   aimFOVChange: 10
 --- !u!114 &2570021904619861534
 MonoBehaviour:
@@ -161,14 +161,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2570021905234114249}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: 0.072, y: 0.427, z: -0.861}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2570021903702279657}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1001 &2570021904755453961
 PrefabInstance:
   m_ObjectHideFlags: 0

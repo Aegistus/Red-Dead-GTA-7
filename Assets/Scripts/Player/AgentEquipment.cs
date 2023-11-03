@@ -47,6 +47,7 @@ public class AgentEquipment : MonoBehaviour
         WeaponAttack[] weaponAttacks = GetComponentsInChildren<WeaponAttack>();
         if (weaponAttacks.Length > 0 && weaponAttacks[0] != null)
         {
+            PickupWeapon(weaponAttacks[0].gameObject);
             PrimaryWeapon = new Weapon(weaponAttacks[0].gameObject);
         }
         if (weaponAttacks.Length > 1 && weaponAttacks[1] != null)
