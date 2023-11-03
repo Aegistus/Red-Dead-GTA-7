@@ -45,7 +45,7 @@ public class PlayerMovement : MonoBehaviour
         RaycastHit rayHit;
         if (Physics.Raycast(transform.position, Vector3.down, out rayHit, 20f, groundLayer))
         {
-            transform.position = rayHit.point + Vector3.up;
+            transform.position = rayHit.point;
         }
 
         // rotational movement

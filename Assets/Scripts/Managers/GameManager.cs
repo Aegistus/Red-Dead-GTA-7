@@ -46,9 +46,14 @@ public class GameManager : MonoBehaviour
 
     public void PlayerEnterCar(CarMovement car)
     {
-        player.gameObject.SetActive(false);
+        //player.gameObject.SetActive(false);
+        player.enabled = false;
         car.enabled = true;
-        car.GetComponent<CarInteraction>().enabled = true;
+        CarInteraction carInteraction = car.GetComponent<CarInteraction>();
+        carInteraction.enabled = true;
+        player.transform.SetParent(carInteraction.saddle);
+        player.transform.position = carInteraction.saddle.position;
+        player.transform.rotation = carInteraction.saddle.rotation;
         car.gameObject.AddComponent<PlayerHealth>();
         cam.targetTransform = car.transform;
     }

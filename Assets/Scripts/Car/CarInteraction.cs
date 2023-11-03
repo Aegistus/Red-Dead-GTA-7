@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class CarInteraction : MonoBehaviour
 {
+    public Transform saddle;
+
     int openDoorSoundID;
 
     void Start()
