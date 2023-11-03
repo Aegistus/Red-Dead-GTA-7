@@ -3,11 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public enum WeaponOffset
-{
-    Idle, Running, Aiming, Reloading, Crouching
-}
-
 public class AgentEquipment : MonoBehaviour
 {
     [SerializeField] Transform weaponHoldTarget;
@@ -27,14 +22,8 @@ public class AgentEquipment : MonoBehaviour
     public Weapon PrimaryWeapon { get; private set; }
     public Weapon SecondaryWeapon { get; private set; }
 
-
-    HumanoidIK ik;
-    HumanoidAnimator humanAnim;
-
     Vector3 targetPosition;
     Quaternion targetRotation;
-
-    WeaponOffset currentOffsetType;
 
     public class Weapon
     {
@@ -56,8 +45,6 @@ public class AgentEquipment : MonoBehaviour
 
     private void Start()
     {
-        ik = GetComponentInChildren<HumanoidIK>();
-        humanAnim = GetComponentInChildren<HumanoidAnimator>();
         WeaponAttack[] weaponAttacks = GetComponentsInChildren<WeaponAttack>();
         if (weaponAttacks.Length > 0 && weaponAttacks[0] != null)
         {
@@ -86,10 +73,6 @@ public class AgentEquipment : MonoBehaviour
         CurrentWeapon = weapon;
         CurrentWeapon.gameObject.SetActive(true);
         weapon.gameObject.transform.SetParent(weaponHoldTarget);
-        ik.SetHandTarget(Hand.Right, CurrentHoldable.RightHandPosition);
-        ik.SetHandTarget(Hand.Left, CurrentHoldable.LeftHandPosition);
-        humanAnim.SetAnimatorController(weapon.animation.AnimationSet);
-        SetWeaponOffset(currentOffsetType);
         CurrentWeapon.attack.Source = damageSource;
         OnWeaponChange?.Invoke();
     }
@@ -102,52 +85,11 @@ public class AgentEquipment : MonoBehaviour
         }
     }
 
-    public void SetWeaponOffset(WeaponOffset offsetType)
-    {
-        currentOffsetType = offsetType;
-        if (!HasWeaponEquipped)
-        {
-            return;
-        }
-        if (offsetType == WeaponOffset.Running)
-        {
-            targetRotation = Quaternion.Euler(CurrentHoldable.RunningRotation);
-            targetPosition = CurrentHoldable.RunningOffset;
-        }
-        else if (offsetType == WeaponOffset.Aiming)
-        {
-            targetRotation = Quaternion.Euler(CurrentHoldable.AimingRotation);
-            targetPosition = CurrentHoldable.AimingOffset;
-        }
-        else if (offsetType == WeaponOffset.Reloading)
-        {
-            targetRotation = Quaternion.Euler(CurrentHoldable.ReloadRotation);
-            targetPosition = CurrentHoldable.ReloadOffset;
-        }
-        else if (offsetType == WeaponOffset.Crouching)
-        {
-            targetRotation = Quaternion.Euler(CurrentHoldable.CrouchingRotation);
-            targetPosition = CurrentHoldable.CrouchingOffset;
-        }
-        else
-        {
-            targetRotation = Quaternion.Euler(CurrentHoldable.IdleRotation);
-            targetPosition = CurrentHoldable.IdleOffset;
-        }
-    }
-
-    private void Update()
-    {
-        if (CurrentWeaponGO)
-        {
-            CurrentWeaponGO.transform.localRotation = Quaternion.Lerp(CurrentWeaponGO.transform.localRotation, targetRotation, weaponOffsetChangeSpeed * Time.deltaTime);
-            CurrentWeaponGO.transform.localPosition = Vector3.Lerp(CurrentWeaponGO.transform.localPosition, targetPosition, weaponOffsetChangeSpeed * Time.deltaTime);
-        }
-    }
-
     public void PickupWeapon(GameObject weaponGO)
     {
         weaponGO.transform.SetParent(weaponHoldTarget);
+        weaponGO.transform.position = weaponHoldTarget.position;
+        weaponGO.transform.rotation = weaponHoldTarget.rotation;
         Rigidbody weaponRB = weaponGO.GetComponent<Rigidbody>();
         weaponRB.isKinematic = true;
         Weapon newWeapon = new Weapon(weaponGO);
