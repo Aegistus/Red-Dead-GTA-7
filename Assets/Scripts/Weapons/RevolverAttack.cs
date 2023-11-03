@@ -18,7 +18,10 @@ public class RevolverAttack : RangedWeaponAttack
 
     public override void BeginAttack()
     {
-        SpawnProjectile();
+        if (weaponAmmo.CurrentLoadedAmmo > 0 && !weaponAmmo.Reloading)
+        {
+            SpawnProjectile();
+        }
     }
 
     public override void DuringAttack()

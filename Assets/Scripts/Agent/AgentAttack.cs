@@ -19,5 +19,9 @@ public class AgentAttack : MonoBehaviour
         {
             equipment.CurrentWeaponAttack.BeginAttack();
         }
+        if (controller.Reload)
+        {
+            equipment.CurrentWeaponAmmunition.TryReload();
+        }
     }
 }

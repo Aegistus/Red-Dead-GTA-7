@@ -1183,6 +1183,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2570021904619861529, guid: d300549496eff644591e4661c7a7bf9e, type: 3}
+      propertyPath: recoilRotationRecovery
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2570021904619861532, guid: d300549496eff644591e4661c7a7bf9e, type: 3}
       propertyPath: m_Name
       value: Revolver
