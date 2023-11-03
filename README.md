@@ -1,2 +1,2 @@
-# GTA-VI
-GTA 6 - made in 24 hours. Made for GADIG Spring Jamfest
+# Red-Dead-GTA-7
+Made in 48 hours for GADIG 2023 Fall Jamfest
