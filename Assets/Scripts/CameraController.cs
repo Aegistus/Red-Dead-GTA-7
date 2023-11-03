@@ -9,13 +9,24 @@ public class CameraController : MonoBehaviour
     public Camera backCamera;
 	public float smoothSpeed = .5f;
 
+    CameraShake camShake;
+    AgentEquipment equipment;
+
     void Start()
     {
+        equipment = targetTransform.GetComponent<AgentEquipment>();
+        equipment.OnWeaponChange += Equipment_OnWeaponChange; ;
+        camShake = GetComponentInChildren<CameraShake>();
         Cursor.lockState = CursorLockMode.Confined;
         Cursor.visible = false;
     }
 
-	void LateUpdate()
+    private void Equipment_OnWeaponChange()
+    {
+        equipment.CurrentWeaponAttack.OnRecoil.AddListener(ScreenShake);
+    }
+
+    void LateUpdate()
 	{
 		transform.position = Vector3.Lerp(transform.position, targetTransform.position, smoothSpeed * Time.deltaTime);
         transform.eulerAngles = new Vector3(transform.eulerAngles.x, targetTransform.eulerAngles.y, transform.eulerAngles.z);
@@ -33,5 +44,10 @@ public class CameraController : MonoBehaviour
             backCamera.gameObject.SetActive(false);
             frontCamera.gameObject.SetActive(true);
         }
+    }
+
+    void ScreenShake()
+    {
+        camShake.StartShake(equipment.CurrentWeaponAttack.camShakeProperties);
     }
 }

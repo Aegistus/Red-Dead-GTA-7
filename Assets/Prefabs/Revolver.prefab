@@ -86,6 +86,15 @@ MonoBehaviour:
       m_Calls: []
   damageMin: 10
   damageMax: 20
+  camShakeProperties:
+    angle: 90
+    strength: 0.05
+    maxSpeed: 2
+    minSpeed: 1
+    duration: 0.5
+    noisePercent: 0.179
+    dampingPercent: 0.532
+    rotationPercent: 0
   projectileID: Revolver_Bullet
   projectileSpawnPoint: {fileID: 2570021905234114248}
   weaponModel: {fileID: 2570021903702279657}
