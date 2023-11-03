@@ -86,7 +86,7 @@ MonoBehaviour:
       m_Calls: []
   damageMin: 10
   damageMax: 20
-  projectileID: 
+  projectileID: Revolver_Bullet
   projectileSpawnPoint: {fileID: 2570021905234114248}
   weaponModel: {fileID: 2570021903702279657}
   recoilXRotation: 1
