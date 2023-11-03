@@ -32,7 +32,6 @@ public class PlayerInteraction : MonoBehaviour
                 }
                 else
                 {
-                    print("TEST");
                     WeaponAttack attack = rayHit.collider.GetComponentInParent<WeaponAttack>();
                     if (attack != null)
                     {

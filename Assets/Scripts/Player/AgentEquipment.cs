@@ -8,6 +8,8 @@ public class AgentEquipment : MonoBehaviour
     [SerializeField] Transform weaponHoldTarget;
     [SerializeField] float weaponOffsetChangeSpeed = 1f;
     [SerializeField] DamageSource damageSource;
+    [SerializeField] Transform arms;
+    [SerializeField] Vector3 armsEquippedRotation;
 
     public event Action OnWeaponChange;
 
@@ -21,9 +23,6 @@ public class AgentEquipment : MonoBehaviour
     public Weapon CurrentWeapon { get; private set; }
     public Weapon PrimaryWeapon { get; private set; }
     public Weapon SecondaryWeapon { get; private set; }
-
-    Vector3 targetPosition;
-    Quaternion targetRotation;
 
     public class Weapon
     {
@@ -68,12 +67,14 @@ public class AgentEquipment : MonoBehaviour
     {
         if (weapon == null)
         {
+            arms.rotation = Quaternion.identity;
             return;
         }
         CurrentWeapon = weapon;
         CurrentWeapon.gameObject.SetActive(true);
         weapon.gameObject.transform.SetParent(weaponHoldTarget);
         CurrentWeapon.attack.Source = damageSource;
+        arms.localEulerAngles = armsEquippedRotation;
         OnWeaponChange?.Invoke();
     }
 
