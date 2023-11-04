@@ -20,6 +20,10 @@ public class Cow : MonoBehaviour
     public void Milk()
     {
         float amount = Time.deltaTime * milkSpeed;
+        if (amount >= milkRemaining)
+        {
+            amount = milkRemaining;
+        }
         GameManager.Instance.ReduceMilkDebt(amount);
         milkRemaining -= amount;
     }
