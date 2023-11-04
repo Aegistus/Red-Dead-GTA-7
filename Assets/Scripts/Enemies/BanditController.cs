@@ -19,6 +19,7 @@ public class BanditController : AgentController
     private void Update()
     {
         Attack = false;
+        Reload = false;
         if (movement.InAttackRange && canAttack)
         {
             Attack = true;
