@@ -24,13 +24,15 @@ public class Projectile : MonoBehaviour
         {
             //PoolManager.Instance.SpawnObjectWithLifetime(impactEffectName, rayHit.point, transform.rotation, 5f);
             AgentHealth health = rayHit.collider.GetComponentInParent<AgentHealth>();
+            PlayerHealth playerHealth = rayHit.collider.GetComponentInParent<PlayerHealth>();
             if (health)
             {
                 health.Damage(damage, source);
                 //SoundManager.Instance.PlaySoundAtPosition("Impact_Flesh", transform.position);
             }
-            else
+            else if (playerHealth)
             {
+                playerHealth.Damage(damage);
                 //SoundManager.Instance.PlaySoundAtPosition("Impact_Metal", transform.position);
             }
             gameObject.SetActive(false);
