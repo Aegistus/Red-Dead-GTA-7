@@ -8,6 +8,7 @@ public abstract class WeaponAmmunition : MonoBehaviour
     [SerializeField] protected int maxLoadedAmmo = 10;
     [SerializeField] protected int maxCarriedAmmo = 100;
     [SerializeField] protected float reloadTime = 2f;
+    [SerializeField] protected float reloadSpinSpeed = 10f;
 
     public int MaxLoadedAmmo => maxLoadedAmmo;
     public int MaxCarriedAmmo => maxCarriedAmmo;
@@ -52,6 +53,7 @@ public abstract class WeaponAmmunition : MonoBehaviour
             return false;
         }
         StartCoroutine(ReloadCoroutine());
+        StartCoroutine(ReloadSpinCoroutine());
         return true;
     }
 
@@ -82,6 +84,18 @@ public abstract class WeaponAmmunition : MonoBehaviour
         {
             currentCarriedAmmo = maxCarriedAmmo;
         }
+    }
+
+    IEnumerator ReloadSpinCoroutine()
+    {
+        transform.Translate(Vector3.left * .5f, Space.Self);
+        while (Reloading)
+        {
+            yield return null;
+            transform.Rotate(reloadSpinSpeed * Time.deltaTime, 0, 0, Space.Self);
+        }
+        transform.localEulerAngles = Vector3.zero;
+        transform.localPosition = Vector3.zero;
     }
 
 }

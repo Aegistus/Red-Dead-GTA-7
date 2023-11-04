@@ -117,7 +117,8 @@ MonoBehaviour:
   reloadSound: 
   maxLoadedAmmo: 6
   maxCarriedAmmo: 1000000
-  reloadTime: 0.25
+  reloadTime: 0.5
+  reloadSpinSpeed: 2000
 --- !u!65 &2570021904619861528
 BoxCollider:
   m_ObjectHideFlags: 0
