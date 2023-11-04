@@ -538,6 +538,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c61ba5c80d76bc439e8191aaa2e7cab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rend: {fileID: 753460609198186833}
   milkMax: 100
   milkSpeed: 10
 --- !u!65 &2052740226243187763
@@ -654,6 +655,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a59cafd03b05ad45946a2dca7101d37, type: 3}
+--- !u!23 &753460609198186833 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -7635826562936255635, guid: 7a59cafd03b05ad45946a2dca7101d37, type: 3}
+  m_PrefabInstance: {fileID: 2052740226189666876}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2014926669509152215 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7a59cafd03b05ad45946a2dca7101d37, type: 3}
