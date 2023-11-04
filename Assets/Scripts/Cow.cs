@@ -7,6 +7,7 @@ public class Cow : MonoBehaviour
     public float MilkMax => milkMax;
     public float MilkRemaining => milkRemaining;
 
+    [SerializeField] MeshRenderer rend;
     [SerializeField] float milkMax;
     [SerializeField] float milkSpeed;
 
@@ -26,5 +27,10 @@ public class Cow : MonoBehaviour
         }
         GameManager.Instance.ReduceMilkDebt(amount);
         milkRemaining -= amount;
+        Color color = rend.material.color;
+        color.r = milkRemaining / milkMax;
+        color.g = milkRemaining / milkMax;
+        color.b = milkRemaining / milkMax;
+        rend.material.color = color;
     }
 }

@@ -398,6 +398,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a629bd29f99a96346a485058051afc77, type: 3}
+--- !u!23 &222689871 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 753460609198186833, guid: 6deda9fd5d308954bafadbecba99315a, type: 3}
+  m_PrefabInstance: {fileID: 2052740227281635212}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &248219742
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1562,6 +1567,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2052740226243187788, guid: 6deda9fd5d308954bafadbecba99315a, type: 3}
+      propertyPath: rend
+      value: 
+      objectReference: {fileID: 222689871}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6deda9fd5d308954bafadbecba99315a, type: 3}
 --- !u!1001 &2358890513759780737
