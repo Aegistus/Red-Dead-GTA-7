@@ -17,7 +17,7 @@ public class CameraController : MonoBehaviour
         equipment = targetTransform.GetComponent<AgentEquipment>();
         equipment.OnWeaponChange += Equipment_OnWeaponChange; ;
         camShake = GetComponentInChildren<CameraShake>();
-        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
 

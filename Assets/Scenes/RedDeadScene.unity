@@ -571,10 +571,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1254412174412934732, guid: 4169cfb5a89abfd4086b2fdc9d0d880f, type: 3}
-      propertyPath: interactionDistance
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2542434610876964788, guid: 4169cfb5a89abfd4086b2fdc9d0d880f, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -622,10 +618,6 @@ PrefabInstance:
     - target: {fileID: 2542434610876964789, guid: 4169cfb5a89abfd4086b2fdc9d0d880f, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 2542434610876964793, guid: 4169cfb5a89abfd4086b2fdc9d0d880f, type: 3}
-      propertyPath: m_Radius
-      value: 0.26
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4169cfb5a89abfd4086b2fdc9d0d880f, type: 3}
@@ -1240,10 +1232,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2894183262931723435, guid: d2153b3966bc2ea42be36f1cab6e3a05, type: 3}
-      propertyPath: m_Radius
-      value: 0.3
-      objectReference: {fileID: 0}
     - target: {fileID: 7340661952268808928, guid: d2153b3966bc2ea42be36f1cab6e3a05, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -1291,10 +1279,6 @@ PrefabInstance:
     - target: {fileID: 7340661952268808929, guid: d2153b3966bc2ea42be36f1cab6e3a05, type: 3}
       propertyPath: m_Name
       value: Bandit
-      objectReference: {fileID: 0}
-    - target: {fileID: 7340661952268808941, guid: d2153b3966bc2ea42be36f1cab6e3a05, type: 3}
-      propertyPath: m_Radius
-      value: 0.3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d2153b3966bc2ea42be36f1cab6e3a05, type: 3}
