@@ -63,8 +63,10 @@ public class GameManager : MonoBehaviour
         player.transform.position = car.transform.position;
         //player.transform.rotation = car.transform.rotation;
         player.transform.Translate(Vector3.right * 3.5f, Space.Self);
-        player.transform.Translate(Vector3.up * 3, Space.Self);
+        //player.transform.Translate(Vector3.up * 3, Space.Self);
         player.gameObject.SetActive(true);
+        player.transform.SetParent(null);
+        player.enabled = true;
         car.enabled = false;
         car.GetComponent<CarInteraction>().enabled = false;
         car.GetComponent<PlayerHealth>().enabled = false;

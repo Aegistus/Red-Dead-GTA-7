@@ -1195,10 +1195,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Honse
       objectReference: {fileID: 0}
-    - target: {fileID: 8003445205030489358, guid: 219bed7c98031224eb9005f9a2b68d41, type: 3}
-      propertyPath: acceleration
-      value: 0.512
-      objectReference: {fileID: 0}
     - target: {fileID: 8003445205030489359, guid: 219bed7c98031224eb9005f9a2b68d41, type: 3}
       propertyPath: m_RootOrder
       value: 4
