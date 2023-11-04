@@ -178,7 +178,7 @@ MonoBehaviour:
     m_Bits: 64
   maxSpeed: 10
   turnSpeed: 7
-  acceleration: 1
+  acceleration: 0.512
   brakeDeceleration: 0.5
   coastDeceleration: 0.1
   inAirDeceleration: 6

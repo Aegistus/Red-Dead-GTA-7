@@ -127,7 +127,7 @@ MonoBehaviour:
     noisePercent: 0.179
     dampingPercent: 0.532
     rotationPercent: 0
-  shootSound: 
+  shootSound: Shotgun_Shoot
   projectileID: Shotgun_Pellet
   projectileSpawnPoint: {fileID: 8792319860208545562}
   weaponModel: {fileID: 8792319859850599483}
@@ -153,7 +153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6582178707af3e34b91f688bcbc4cf2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  reloadSound: Revolver_Reload
+  reloadSound: Shotgun_Reload
   maxLoadedAmmo: 8
   maxCarriedAmmo: 1000000
   reloadTime: 0.5
