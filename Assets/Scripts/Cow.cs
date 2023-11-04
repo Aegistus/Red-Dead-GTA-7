@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Cow : MonoBehaviour
 {
+    public float MilkMax => milkMax;
+    public float MilkRemaining => milkRemaining;
+
     [SerializeField] float milkMax;
     [SerializeField] float milkSpeed;
 
