@@ -84,6 +84,7 @@ MonoBehaviour:
   OnRecoil:
     m_PersistentCalls:
       m_Calls: []
+  holdOffset: {x: 0, y: 0, z: 0}
   damageMin: 10
   damageMax: 20
   camShakeProperties:
@@ -231,6 +232,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7635826562936255635, guid: 40767190b8406ef408efa6d8227ebd11, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ebdd3a7db65609d42ac3985ad23d4678, type: 2}
     - target: {fileID: 919132149155446097, guid: 40767190b8406ef408efa6d8227ebd11, type: 3}
       propertyPath: m_Name
       value: revolver

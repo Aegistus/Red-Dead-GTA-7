@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class StartMenuUI : MonoBehaviour
 {
+    [SerializeField] string nextScene = "IntroScene";
+
 
     void Start()
     {
@@ -14,7 +16,7 @@ public class StartMenuUI : MonoBehaviour
     
     public void StartGame()
     {
-        SceneManager.LoadScene("GameScene");
+        SceneManager.LoadScene(nextScene);
     }
 
     public void QuitGame()
