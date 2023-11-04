@@ -13,6 +13,7 @@ public class PlayerInteraction : MonoBehaviour
 
     AgentEquipment agentEquipment;
     Vector3 halfExtents = new Vector3(1, 1, 2);
+    Cow currentlyMilking;
 
     void Start()
     {
@@ -28,18 +29,27 @@ public class PlayerInteraction : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.E))
             {
                 CarMovement car = rayHit.collider.GetComponentInParent<CarMovement>();
+                WeaponAttack weapon = rayHit.collider.GetComponentInParent<WeaponAttack>();
+                currentlyMilking = rayHit.collider.GetComponentInParent<Cow>();
                 if (car != null)
                 {
                     SoundManager.Instance.PlaySoundAtPosition(openDoorSoundID, transform.position);
                     GameManager.Instance.PlayerEnterCar(car);
                 }
-                else
+                else if (weapon != null)
                 {
-                    WeaponAttack attack = rayHit.collider.GetComponentInParent<WeaponAttack>();
-                    if (attack != null)
-                    {
-                        agentEquipment.PickupWeapon(attack.gameObject);
-                    }
+                    agentEquipment.PickupWeapon(weapon.gameObject);
+                }
+                else if (currentlyMilking != null)
+                {
+                    currentlyMilking.Milk();
+                }
+            }
+            if (Input.GetKey(KeyCode.E))
+            {
+                if (currentlyMilking != null)
+                {
+                    currentlyMilking.Milk();
                 }
             }
             OnInteractStateChange?.Invoke(true);
@@ -48,6 +58,7 @@ public class PlayerInteraction : MonoBehaviour
         else
         {
             OnInteractStateChange?.Invoke(false);
+            currentlyMilking = null;
         }
     }
 }

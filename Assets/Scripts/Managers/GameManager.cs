@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
 
     int numOfDeadPedestrians;
 
+    public float MilkDebt { get; private set; } = 1000;
     public int CurrentWantedLevel { get; private set; } = 0;
 
     int oneStarReq = 1;
@@ -107,5 +108,10 @@ public class GameManager : MonoBehaviour
             SoundManager.Instance.PlaySoundGlobal(gainStarSoundID);
         }
         OnWantedLevelChange.Invoke(CurrentWantedLevel);
+    }
+
+    public void ReduceMilkDebt(float amount)
+    {
+        MilkDebt -= amount;
     }
 }
