@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.19505, g: 0.2364021, b: 0.30957273, a: 1}
+  m_IndirectSpecularColor: {r: 0.19501731, g: 0.23635733, b: 0.30955988, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -14568,8 +14568,8 @@ GameObject:
   - component: {fileID: 1483151047}
   - component: {fileID: 1483151048}
   - component: {fileID: 1483151049}
-  - component: {fileID: 1483151050}
   - component: {fileID: 1483151051}
+  - component: {fileID: 1483151052}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -14620,21 +14620,6 @@ MonoBehaviour:
   spawnRadius: 300
   spawnHeight: 50
   fiveStarMissileSpeed: 20
---- !u!114 &1483151050
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1483151046}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ba3bc6f5854e1548801e7239ff26918, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  numOfPositionalSources: 600
-  mixerGroup: {fileID: 0}
-  soundPath: Sounds
 --- !u!114 &1483151051
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14649,6 +14634,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pedestrianPrefab: {fileID: 1750746482247441909, guid: f76ffcd1510bfd2478819d2289629173, type: 3}
   spawnRadius: 300
+--- !u!114 &1483151052
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1483151046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24b5aea3bdf3b4a4bbc37cfbf19b25a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numOfPositionalSources: 100
+  mixerGroup: {fileID: 0}
+  soundPath: 
 --- !u!1 &1486916611
 GameObject:
   m_ObjectHideFlags: 0

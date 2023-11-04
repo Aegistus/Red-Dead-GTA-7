@@ -88,9 +88,9 @@ MonoBehaviour:
   damageMax: 20
   camShakeProperties:
     angle: 90
-    strength: 0.05
-    maxSpeed: 2
-    minSpeed: 1
+    strength: 0.1
+    maxSpeed: 4
+    minSpeed: 3
     duration: 0.5
     noisePercent: 0.179
     dampingPercent: 0.532
