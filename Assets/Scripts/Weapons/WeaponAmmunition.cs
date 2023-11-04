@@ -91,6 +91,7 @@ public abstract class WeaponAmmunition : MonoBehaviour
 
     IEnumerator ReloadSpinCoroutine()
     {
+        Vector3 startingPos = transform.localPosition;
         transform.Translate(Vector3.left * .5f, Space.Self);
         while (Reloading)
         {
@@ -98,7 +99,7 @@ public abstract class WeaponAmmunition : MonoBehaviour
             transform.Rotate(reloadSpinSpeed * Time.deltaTime, 0, 0, Space.Self);
         }
         transform.localEulerAngles = Vector3.zero;
-        transform.localPosition = Vector3.zero;
+        transform.localPosition = startingPos;
     }
 
 }

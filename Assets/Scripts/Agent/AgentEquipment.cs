@@ -74,6 +74,7 @@ public class AgentEquipment : MonoBehaviour
         CurrentWeapon = weapon;
         CurrentWeapon.gameObject.SetActive(true);
         weapon.gameObject.transform.SetParent(weaponHoldTarget);
+        weapon.gameObject.transform.localPosition = weapon.attack.HoldOffset;
         CurrentWeapon.attack.Source = damageSource;
         arms.localEulerAngles = armsEquippedRotation;
         OnWeaponChange?.Invoke();
