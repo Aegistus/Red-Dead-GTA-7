@@ -22,16 +22,16 @@ public class Projectile : MonoBehaviour
         RaycastHit rayHit;
         if (Physics.Raycast(transform.position, transform.forward, out rayHit, speed * Time.deltaTime, mask, QueryTriggerInteraction.Ignore))
         {
-            PoolManager.Instance.SpawnObjectWithLifetime(impactEffectName, rayHit.point, transform.rotation, 5f);
+            //PoolManager.Instance.SpawnObjectWithLifetime(impactEffectName, rayHit.point, transform.rotation, 5f);
             AgentHealth health = rayHit.collider.GetComponentInParent<AgentHealth>();
             if (health)
             {
                 health.Damage(damage, source);
-                SoundManager.Instance.PlaySoundAtPosition("Impact_Flesh", transform.position);
+                //SoundManager.Instance.PlaySoundAtPosition("Impact_Flesh", transform.position);
             }
             else
             {
-                SoundManager.Instance.PlaySoundAtPosition("Impact_Metal", transform.position);
+                //SoundManager.Instance.PlaySoundAtPosition("Impact_Metal", transform.position);
             }
             gameObject.SetActive(false);
         }

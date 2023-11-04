@@ -4,16 +4,10 @@ using UnityEngine;
 
 public class RevolverAttack : RangedWeaponAttack
 {
-    int shootSoundID;
 
     protected override void Awake()
     {
         base.Awake();
-    }
-
-    private void Start()
-    {
-        shootSoundID = SoundManager.Instance.GetSoundID("Revolver_Shoot");
     }
 
     public override void BeginAttack()
@@ -42,7 +36,7 @@ public class RevolverAttack : RangedWeaponAttack
             float damage = Random.Range(damageMin, damageMax);
             projectile.GetComponent<Projectile>().SetDamage(damage, Source);
             ApplyRecoil();
-            SoundManager.Instance.PlaySoundAtPosition(shootSoundID, projectileSpawnPoint.position);
+            SoundManager.Instance.PlaySoundAtPosition(shootSound, projectileSpawnPoint.position);
         }
     }
 }

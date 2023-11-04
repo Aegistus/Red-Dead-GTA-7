@@ -276,7 +276,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numOfPositionalSources: 100
   mixerGroup: {fileID: 0}
-  soundPath: /sounds
+  soundPath: Sounds
 --- !u!1001 &861566933
 PrefabInstance:
   m_ObjectHideFlags: 0

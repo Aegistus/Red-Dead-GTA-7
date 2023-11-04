@@ -46,7 +46,6 @@ public abstract class WeaponAmmunition : MonoBehaviour
 
     public virtual bool TryReload()
     {
-        print("RELOADING TEST");
         int ammoNeeded = maxLoadedAmmo - currentLoadedAmmo;
         if (ammoNeeded == 0 || currentCarriedAmmo == 0)
         {
