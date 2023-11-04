@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using System;
+using UnityEditor.Experimental.GraphView;
 
 public class AgentHealth : MonoBehaviour
 {
@@ -30,7 +31,6 @@ public class AgentHealth : MonoBehaviour
     float delayTimer;
     readonly float ragdollDuration = 5f;
 
-    Ragdoll ragdoll;
     AgentEquipment equipment;
 
     int hitSoundID;
@@ -41,14 +41,7 @@ public class AgentHealth : MonoBehaviour
     {
         currentHealth = maxHealth;
         currentArmor = maxArmor;
-        ragdoll = GetComponentInChildren<Ragdoll>();
         equipment = GetComponent<AgentEquipment>();
-    }
-
-    private void Start()
-    {
-        armorRechargeStartID = SoundManager.Instance.GetSoundID("Armor_Recharge_Start");
-        armorRechargeEndID = SoundManager.Instance.GetSoundID("Armor_Recharge_End");
     }
 
     //private void Start()
@@ -148,26 +141,36 @@ public class AgentHealth : MonoBehaviour
     public void Kill()
     {
         isDead = true;
-        ragdoll.EnableRagdoll();
         equipment.DropWeapon();
         OnHealthChange?.Invoke();
         OnAgentDeath?.Invoke();
         StartCoroutine(StopRagdoll());
         NavMeshAgent navAgent = GetComponent<NavMeshAgent>();
-        Collider collider = GetComponent<Collider>();
         if (navAgent != null)
         {
             navAgent.enabled = false;
         }
-        if (collider != null)
+        AgentMovement movement = GetComponent<AgentMovement>();
+        if (movement)
         {
-            collider.enabled = false;
+            movement.enabled = false;
+        }
+        AgentController controller = GetComponent<AgentController>();
+        if (controller)
+        {
+            controller.enabled = false;
+        }
+        Rigidbody rb = GetComponent<Rigidbody>();
+        if (rb)
+        {
+            rb.isKinematic = false;
+            rb.freezeRotation = false;
+            rb.AddForce(transform.forward * 2);
         }
     }
 
     IEnumerator StopRagdoll()
     {
         yield return new WaitForSeconds(ragdollDuration);
-        ragdoll.DisableRagdoll();
     }
 }

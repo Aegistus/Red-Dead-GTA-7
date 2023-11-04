@@ -128,6 +128,7 @@ public class AgentEquipment : MonoBehaviour
             CurrentWeaponGO.transform.Translate(transform.forward * .5f);
             Rigidbody weaponRB = CurrentWeaponGO.GetComponent<Rigidbody>();
             weaponRB.isKinematic = false;
+            weaponRB.useGravity = true;
             CurrentWeaponGO.GetComponent<BoxCollider>().enabled = true;
             CurrentWeapon = null;
         }

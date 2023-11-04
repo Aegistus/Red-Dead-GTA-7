@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class BanditMovement : MonoBehaviour
+public class BanditMovement : AgentMovement
 {
     [SerializeField] float detectionRadius = 30f;
     [SerializeField] float standDistance = 10f;
