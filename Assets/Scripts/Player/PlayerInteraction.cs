@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class PlayerInteraction : MonoBehaviour
 {
+    public event Action<bool> OnInteractStateChange;
+
     public LayerMask interactableLayers;
     public float interactionDistance = 1f;
     int openDoorSoundID;
@@ -39,7 +42,12 @@ public class PlayerInteraction : MonoBehaviour
                     }
                 }
             }
+            OnInteractStateChange?.Invoke(true);
             //print("In interaction range");
+        }
+        else
+        {
+            OnInteractStateChange?.Invoke(false);
         }
     }
 }

@@ -10,7 +10,6 @@ public class PlayerHealth : MonoBehaviour
     public static float maxHealth = 100;
     
     public static float currentHealth;
-	CharacterController controller;
 	
 	int wastedSoundID;
 
@@ -18,7 +17,6 @@ public class PlayerHealth : MonoBehaviour
 
 	void Awake()
 	{
-		controller = GetComponent<CharacterController>();
         currentHealth = maxHealth;
 		Time.timeScale = 1f;
 	}
