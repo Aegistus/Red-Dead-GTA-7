@@ -54,7 +54,6 @@ public class CarMovement : MonoBehaviour
 			currentSpeed = Mathf.Clamp(currentSpeed, 0, float.MaxValue);
             if (transform.position.y <= -100)
             {
-                print("TESTSTS");
                 transform.position = new Vector3(transform.position.x, 3, transform.position.z);
             }
             //print(currentSpeed);
