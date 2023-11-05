@@ -36,6 +36,7 @@ public class BanditMovement : AgentMovement
             {
                 navAgent.SetDestination(transform.position);
                 InAttackRange = true;
+                transform.LookAt(playerTransform);
             }
         }
     }

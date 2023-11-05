@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using System;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField] string winScene = "WinScene";
+
     public static GameManager Instance {get; private set;}
     public Action<int> OnWantedLevelChange;
 
@@ -113,5 +116,9 @@ public class GameManager : MonoBehaviour
     public void ReduceMilkDebt(float amount)
     {
         MilkDebt -= amount;
+        if (MilkDebt <= 0)
+        {
+            SceneManager.LoadScene(winScene);
+        }
     }
 }

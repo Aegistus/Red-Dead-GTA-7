@@ -5505,7 +5505,7 @@ Transform:
   - {fileID: 246674672}
   - {fileID: 308451538}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &373343254
 PrefabInstance:
@@ -6364,7 +6364,7 @@ Transform:
   - {fileID: 575287066}
   - {fileID: 187114882}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &431868429
 PrefabInstance:
@@ -14417,7 +14417,7 @@ MonoBehaviour:
   m_LayerMask:
     serializedVersion: 2
     m_Bits: 631
-  m_UseGeometry: 0
+  m_UseGeometry: 1
   m_DefaultArea: 0
   m_IgnoreNavMeshAgent: 1
   m_IgnoreNavMeshObstacle: 1
