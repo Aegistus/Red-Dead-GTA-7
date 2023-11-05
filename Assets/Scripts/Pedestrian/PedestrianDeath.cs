@@ -24,20 +24,17 @@ public class PedestrianDeath : MonoBehaviour
         navAgent = GetComponent<NavMeshAgent>();
     }
 
-    void OnCollisionEnter(Collision collision)
+    void OnTriggerEnter(Collider collision)
     {
         if (collision.gameObject.layer == carLayer && !isDead)
         {
-            PlayerHealth player = collision.gameObject.GetComponent<PlayerHealth>();
-            if (player != null && player.enabled)
-            {
-                Kill();
-            }
+            Kill();
         }
     }
 
     public void Kill()
     {
+        print("TEST");
         rb.isKinematic = false;
         movement.enabled = false;
         navAgent.enabled = false;
