@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Shotgun_Pellet
   m_EditorClassIdentifier: 
   prefab: {fileID: 6174654087137397696, guid: 54cffb0c325b41545968b53a179f9678, type: 3}
-  instanceCount: 300
+  instanceCount: 500

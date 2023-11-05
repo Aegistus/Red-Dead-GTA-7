@@ -50,7 +50,7 @@ MonoBehaviour:
   impactEffectName: 
   mask:
     serializedVersion: 2
-    m_Bits: 264
+    m_Bits: 328
 --- !u!135 &6174654087137397708
 SphereCollider:
   m_ObjectHideFlags: 0

@@ -45,11 +45,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33e0f2b3ea119cd47b4055759d96de2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 10
+  health: 100
   radius: 2
   playerMask:
     serializedVersion: 2
-    m_Bits: 136
+    m_Bits: 8
 --- !u!1001 &3745460208979580070
 PrefabInstance:
   m_ObjectHideFlags: 0
