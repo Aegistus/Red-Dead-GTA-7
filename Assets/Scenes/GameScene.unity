@@ -6327,6 +6327,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 423682834}
+  - component: {fileID: 423682835}
   m_Layer: 0
   m_Name: Town 01
   m_TagString: Untagged
@@ -6366,6 +6367,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &423682835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 423682833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30d1aab7edc8d9d469516007b3f409d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pedestrianPrefab: {fileID: 1750746482247441909, guid: f76ffcd1510bfd2478819d2289629173, type: 3}
+  spawnRadius: 30
+  maxPedestrianCount: 20
 --- !u!1001 &431868429
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15815,6 +15831,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1044455325}
+  - component: {fileID: 1044455326}
   m_Layer: 0
   m_Name: Town 04
   m_TagString: Untagged
@@ -15841,6 +15858,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1044455326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1044455324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30d1aab7edc8d9d469516007b3f409d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pedestrianPrefab: {fileID: 1750746482247441909, guid: f76ffcd1510bfd2478819d2289629173, type: 3}
+  spawnRadius: 30
+  maxPedestrianCount: 20
 --- !u!1001 &1046966413
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20794,6 +20826,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1352167997}
+  - component: {fileID: 1352167998}
   m_Layer: 0
   m_Name: Town 02
   m_TagString: Untagged
@@ -20821,6 +20854,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1352167998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1352167996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30d1aab7edc8d9d469516007b3f409d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pedestrianPrefab: {fileID: 1750746482247441909, guid: f76ffcd1510bfd2478819d2289629173, type: 3}
+  spawnRadius: 30
+  maxPedestrianCount: 20
 --- !u!1001 &1355207258
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23411,6 +23459,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1526262537}
+  - component: {fileID: 1526262538}
   m_Layer: 0
   m_Name: Town 03
   m_TagString: Untagged
@@ -23436,6 +23485,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1526262538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1526262536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30d1aab7edc8d9d469516007b3f409d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pedestrianPrefab: {fileID: 1750746482247441909, guid: f76ffcd1510bfd2478819d2289629173, type: 3}
+  spawnRadius: 30
+  maxPedestrianCount: 20
 --- !u!1001 &1526517586
 PrefabInstance:
   m_ObjectHideFlags: 0

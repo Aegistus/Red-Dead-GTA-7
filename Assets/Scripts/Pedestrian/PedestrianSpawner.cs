@@ -6,9 +6,9 @@ public class PedestrianSpawner : MonoBehaviour
 {
     public GameObject pedestrianPrefab;
     public float spawnRadius = 100;
+    public int maxPedestrianCount = 20;
 
     int currentPedestrianCount = 0;
-    int maxPedestrianCount = 100;
 
     void Awake()
     {
@@ -35,8 +35,9 @@ public class PedestrianSpawner : MonoBehaviour
 
     void SpawnPedestrian()
     {
-        Vector3 position = Random.insideUnitCircle * spawnRadius;
+        Vector3 position = (Random.insideUnitCircle * spawnRadius);
         position.z = position.y;
+        position += transform.position;
         position.y = 2;
         Instantiate(pedestrianPrefab, position, Quaternion.identity);
     }
