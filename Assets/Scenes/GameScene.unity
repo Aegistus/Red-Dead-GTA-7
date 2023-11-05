@@ -6567,7 +6567,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pedestrianPrefab: {fileID: 1750746482247441909, guid: f76ffcd1510bfd2478819d2289629173, type: 3}
   spawnRadius: 30
-  maxPedestrianCount: 20
+  maxPedestrianCount: 10
 --- !u!1001 &431868429
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16430,7 +16430,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pedestrianPrefab: {fileID: 1750746482247441909, guid: f76ffcd1510bfd2478819d2289629173, type: 3}
   spawnRadius: 30
-  maxPedestrianCount: 20
+  maxPedestrianCount: 10
 --- !u!1001 &1046966413
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21488,7 +21488,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pedestrianPrefab: {fileID: 1750746482247441909, guid: f76ffcd1510bfd2478819d2289629173, type: 3}
   spawnRadius: 30
-  maxPedestrianCount: 20
+  maxPedestrianCount: 10
 --- !u!1001 &1355207258
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24243,7 +24243,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pedestrianPrefab: {fileID: 1750746482247441909, guid: f76ffcd1510bfd2478819d2289629173, type: 3}
   spawnRadius: 30
-  maxPedestrianCount: 20
+  maxPedestrianCount: 10
 --- !u!1001 &1526517586
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -35151,6 +35151,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2570021904619861529, guid: d300549496eff644591e4661c7a7bf9e, type: 3}
+      propertyPath: holdOffset.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2570021904619861532, guid: d300549496eff644591e4661c7a7bf9e, type: 3}
       propertyPath: m_Name
       value: Revolver

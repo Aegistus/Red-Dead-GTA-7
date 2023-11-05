@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using System;
-using UnityEditor.Experimental.GraphView;
+using Random = UnityEngine.Random;
 
 public class AgentHealth : MonoBehaviour
 {
@@ -165,7 +165,8 @@ public class AgentHealth : MonoBehaviour
         {
             rb.isKinematic = false;
             rb.freezeRotation = false;
-            rb.AddForce(transform.forward * 2);
+            Vector3 direction = new Vector3(Random.value, Random.value, Random.value);
+            rb.AddForce(direction * 100);
         }
     }
 
