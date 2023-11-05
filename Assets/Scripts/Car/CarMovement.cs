@@ -52,8 +52,13 @@ public class CarMovement : MonoBehaviour
 			transform.Translate(Vector3.forward * currentSpeed * Time.deltaTime, Space.Self);
 			currentSpeed -= (inAirDeceleration * Time.deltaTime);
 			currentSpeed = Mathf.Clamp(currentSpeed, 0, float.MaxValue);
-			//print(currentSpeed);
-			return;
+            if (transform.position.y <= -100)
+            {
+                print("TESTSTS");
+                transform.position = new Vector3(transform.position.x, 3, transform.position.z);
+            }
+            //print(currentSpeed);
+            return;
 		}
 		float forwardInput = Input.GetAxis("Vertical");
 		float horizontalInput = Input.GetAxis("Horizontal");
@@ -76,11 +81,6 @@ public class CarMovement : MonoBehaviour
 		currentSpeed = Mathf.Clamp(currentSpeed, -maxSpeed, maxSpeed);
 		transform.Translate(Vector3.forward * currentSpeed * Time.deltaTime, Space.Self);
 		transform.Rotate(Vector3.up * horizontalInput * turnSpeed * currentSpeed * Time.deltaTime, Space.Self);
-        if (transform.position.y <= -100)
-        {
-			print("TESTSTS");
-            transform.position = new Vector3(transform.position.x, 3, transform.position.z);
-        }
     }
 
 	void OnTriggerEnter(Collider other)
