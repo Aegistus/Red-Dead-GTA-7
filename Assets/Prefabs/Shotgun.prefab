@@ -154,7 +154,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   reloadSound: Shotgun_Reload
-  maxLoadedAmmo: 8
+  maxLoadedAmmo: 2
   maxCarriedAmmo: 1000000
   reloadTime: 0.5
   reloadSpinSpeed: 1750
