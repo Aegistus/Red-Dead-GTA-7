@@ -1238,7 +1238,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c960b9f51cc8be4a82cff0a794fa031, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  screenDelay: 1.5
+  screenDelay: 1.2
   startElements:
   - {fileID: 67650746245083556}
   endElements:
