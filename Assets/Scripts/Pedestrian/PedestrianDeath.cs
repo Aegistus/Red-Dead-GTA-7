@@ -34,7 +34,6 @@ public class PedestrianDeath : MonoBehaviour
 
     public void Kill()
     {
-        print("TEST");
         rb.isKinematic = false;
         movement.enabled = false;
         navAgent.enabled = false;
