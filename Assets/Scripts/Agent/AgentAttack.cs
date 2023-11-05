@@ -15,6 +15,11 @@ public class AgentAttack : MonoBehaviour
 
     private void Update()
     {
+        if (controller.SwitchWeapon)
+        {
+            equipment.TrySwitchWeapon();
+            return;
+        }
         if (controller.Attack && equipment.CurrentWeapon != null)
         {
             equipment.CurrentWeaponAttack.BeginAttack();

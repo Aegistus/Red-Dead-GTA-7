@@ -8,5 +8,6 @@ public class PlayerController : AgentController
     {
         Attack = Input.GetMouseButtonDown(0);
         Reload = Input.GetKeyDown(KeyCode.R);
+        SwitchWeapon = Mathf.Abs(Input.mouseScrollDelta.y) > .5f;
     }
 }

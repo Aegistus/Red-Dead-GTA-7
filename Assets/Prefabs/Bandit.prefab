@@ -109,8 +109,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3731f56bf39cca140be0e47c73aaee59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  detectionRadius: 10
-  standDistance: 5
+  detectionRadius: 30
+  standDistance: 20
 --- !u!114 &2894183262931723433
 MonoBehaviour:
   m_ObjectHideFlags: 0
