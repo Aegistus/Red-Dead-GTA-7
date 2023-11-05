@@ -52,6 +52,10 @@ public class PlayerMovement : AgentMovement
         float yRotation = Input.GetAxis("Mouse X");
         yRotation *= turnSpeed;
         transform.Rotate(0, yRotation * Time.deltaTime, 0, Space.Self);
+        if (transform.position.y <= -100)
+        {
+            transform.position = new Vector3(transform.position.x, 3, transform.position.z);
+        }
     }
 
     void OnDisable()

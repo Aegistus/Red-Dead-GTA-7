@@ -305,9 +305,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5086762906562924700}
     m_Modifications:
+    - target: {fileID: 2570021903702279662, guid: d300549496eff644591e4661c7a7bf9e, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2570021904619861532, guid: d300549496eff644591e4661c7a7bf9e, type: 3}
       propertyPath: m_Name
       value: Revolver
+      objectReference: {fileID: 0}
+    - target: {fileID: 2570021904619861532, guid: d300549496eff644591e4661c7a7bf9e, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2570021904619861535, guid: d300549496eff644591e4661c7a7bf9e, type: 3}
       propertyPath: m_RootOrder
@@ -351,6 +359,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2570021904619861535, guid: d300549496eff644591e4661c7a7bf9e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2570021905234114249, guid: d300549496eff644591e4661c7a7bf9e, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3417076116759170392, guid: d300549496eff644591e4661c7a7bf9e, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5973514182086473089, guid: d300549496eff644591e4661c7a7bf9e, type: 3}
+      propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

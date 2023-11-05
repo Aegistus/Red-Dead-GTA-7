@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
 
     int numOfDeadPedestrians;
 
-    public float MilkDebt { get; private set; } = 1000;
+    public float MilkDebt { get; private set; } = 700;
     public int CurrentWantedLevel { get; private set; } = 0;
 
     int oneStarReq = 1;
