@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89c7e6321a0114c42b23a0ad6bede4fe, type: 3}
   m_Name: Missile_Explosion
   m_EditorClassIdentifier: 
-  audioVariants: []
+  audioVariants:
+  - {fileID: 8300000, guid: 5d1f7734b2f65334ea53ddb64b2be831, type: 3}
+  - {fileID: 8300000, guid: f7c69147d1072734dbe3d426a2edc45e, type: 3}
   volume: 1
   volumeVariance: 0.1
   pitch: 1

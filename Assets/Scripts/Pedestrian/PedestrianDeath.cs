@@ -28,7 +28,11 @@ public class PedestrianDeath : MonoBehaviour
     {
         if (collision.gameObject.layer == carLayer && !isDead)
         {
-            Kill();
+            CarMovement car = collision.gameObject.GetComponentInParent<CarMovement>();
+            if (car.enabled)
+            {
+                Kill();
+            }
         }
     }
 
