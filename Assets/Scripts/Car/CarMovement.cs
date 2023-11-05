@@ -16,7 +16,9 @@ public class CarMovement : MonoBehaviour
 	[Range(0f, 1f)]
 	public float coastDeceleration = .1f;
 	public float inAirDeceleration = 3f;
-    
+
+	public float CurrentSpeed => currentSpeed;
+
 	float currentSpeed = 0f;
 	int runningSoundID;
 	int impactSoundID;
