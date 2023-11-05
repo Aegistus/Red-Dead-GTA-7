@@ -22,15 +22,15 @@ public class PedestrianSpawner : MonoBehaviour
 
     IEnumerator RespawnPedestrians()
     {
-        while (true)
-        {
+        //while (true)
+        //{
             int countToSpawn = maxPedestrianCount - currentPedestrianCount;
             for (int i = 0; i < countToSpawn; i++)
             {
                 SpawnPedestrian();
             }
             yield return new WaitForSeconds(30f);
-        }
+        //}
     }
 
     void SpawnPedestrian()

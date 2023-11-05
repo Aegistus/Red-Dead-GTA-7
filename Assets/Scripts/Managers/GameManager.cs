@@ -26,6 +26,8 @@ public class GameManager : MonoBehaviour
     int fiveStarReq = 24;
 
     int gainStarSoundID;
+    float starWearOffTime = 30f;
+    float timer;
 
     void Awake()
     {
@@ -46,6 +48,19 @@ public class GameManager : MonoBehaviour
         int cityAmbianceSoundID = SoundManager.Instance.GetSoundID("City_Ambiance");
         gainStarSoundID = SoundManager.Instance.GetSoundID("Gain_Star");
         SoundManager.Instance.PlayGlobalFadeIn(cityAmbianceSoundID, 2f);
+    }
+
+    private void Update()
+    {
+        if (timer > 0)
+        {
+            timer -= Time.deltaTime;
+        }
+        else if (CurrentWantedLevel > 0)
+        {
+            CurrentWantedLevel = 0;
+            OnWantedLevelChange.Invoke(CurrentWantedLevel);
+        }
     }
 
     public void PlayerEnterCar(CarMovement car)
@@ -109,6 +124,7 @@ public class GameManager : MonoBehaviour
         if (CurrentWantedLevel > lastWantedLevel)
         {
             SoundManager.Instance.PlaySoundGlobal(gainStarSoundID);
+            timer = starWearOffTime;
         }
         OnWantedLevelChange.Invoke(CurrentWantedLevel);
     }

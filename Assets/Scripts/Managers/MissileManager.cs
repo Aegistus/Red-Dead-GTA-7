@@ -42,6 +42,7 @@ public class MissileManager : MonoBehaviour
 
     public void UpdateMissilesWithWantedLevel(int wantedLevel)
     {
+        print("TEST");
         targetNumOfMissiles = missilesPerWantedLevel[wantedLevel];
     }
 
