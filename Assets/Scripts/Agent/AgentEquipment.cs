@@ -85,6 +85,7 @@ public class AgentEquipment : MonoBehaviour
         if (weapon != null)
         {
             weapon.gameObject.SetActive(false);
+            weapon.gameObject.transform.localEulerAngles = Vector3.zero;
         }
     }
 
